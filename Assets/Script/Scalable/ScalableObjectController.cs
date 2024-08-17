@@ -6,7 +6,6 @@ public class ScalableObjectController : MonoBehaviour
     private Vector3 initialScale;
     private bool isSelected = false;
     private IObjectState currentState;
-    private Coroutine scalingCoroutine;
 
     public float scalingDuration = 0.5f;
     public AnimationCurve scalingCurve;
@@ -54,12 +53,12 @@ public class ScalableObjectController : MonoBehaviour
     {
         if (currentState == NormalState)
         {
-            transform.localScale = initialScale * 0.5f;
+            StartCoroutine(AnimateScale(initialScale * 0.5f));
             ChangeState(SmallState);
         }
         else if (currentState == LargeState)
         {
-            transform.localScale = initialScale;
+            StartCoroutine(AnimateScale(initialScale));
             ChangeState(NormalState);
         }
         // If already in SmallState, do nothing
@@ -69,29 +68,20 @@ public class ScalableObjectController : MonoBehaviour
     {
         if (currentState == NormalState)
         {
-            transform.localScale = initialScale * 2f;
+            StartCoroutine(AnimateScale(initialScale * 2f));
             ChangeState(LargeState);
         }
         else if (currentState == SmallState)
         {
-            transform.localScale = initialScale;
+            StartCoroutine(AnimateScale(initialScale));
             ChangeState(NormalState);
         }
         // If already in LargeState, do nothing
     }
 
-    void StartScaling(Vector3 targetScale)
+    private IEnumerator AnimateScale(Vector3 targetScale)
     {
-        if (scalingCoroutine != null)
-        {
-            StopCoroutine(scalingCoroutine);
-        }
-        scalingCoroutine = StartCoroutine(ScaleOverTime(targetScale));
-    }
-
-    System.Collections.IEnumerator ScaleOverTime(Vector3 targetScale)
-    {
-        Vector3 initialScale = transform.localScale;
+        Vector3 startScale = transform.localScale;
         float elapsedTime = 0f;
 
         while (elapsedTime < scalingDuration)
@@ -99,8 +89,7 @@ public class ScalableObjectController : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / scalingDuration;
             float curveValue = scalingCurve.Evaluate(t);
-
-            transform.localScale = Vector3.Lerp(initialScale, targetScale, curveValue);
+            transform.localScale = Vector3.Lerp(startScale, targetScale, curveValue);
             yield return null;
         }
 
