@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: Color Palette
   m_EditorClassIdentifier: 
   colorDesigns:
-  - keyChar: //
+  - keyChar: /
     textColor: {r: 1, g: 1, b: 1, a: 1}
     backgroundColor: {r: 0.8553459, g: 0.52988404, b: 0.56027615, a: 1}
     textAlignment: 4
     fontStyle: 3
-  - keyChar: ///
+  - keyChar: //
     textColor: {r: 1, g: 1, b: 1, a: 1}
     backgroundColor: {r: 0, g: 0.6152477, b: 1, a: 1}
     textAlignment: 4
     fontStyle: 3
-  - keyChar: '#'
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-    backgroundColor: {r: 0.5058824, g: 0.84705883, b: 0.81960785, a: 1}
-    textAlignment: 4
-    fontStyle: 3
-  - keyChar: '@'
+  - keyChar: ///
     textColor: {r: 1, g: 1, b: 1, a: 1}
     backgroundColor: {r: 0.5320318, g: 0.45686474, b: 0.8805031, a: 1}
     textAlignment: 4
     fontStyle: 3
-  - keyChar: $
+  - keyChar: ////
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 0.5058824, g: 0.84705883, b: 0.81960785, a: 1}
+    textAlignment: 4
+    fontStyle: 3
+  - keyChar: /////
     textColor: {r: 1, g: 1, b: 1, a: 1}
     backgroundColor: {r: 0.91823894, g: 0.7014561, b: 0.41869378, a: 1}
     textAlignment: 4
