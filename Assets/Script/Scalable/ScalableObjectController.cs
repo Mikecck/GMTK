@@ -6,6 +6,10 @@ public class ScalableObjectController : MonoBehaviour
     private Vector3 initialScale;
     private bool isSelected = false;
     private IObjectState currentState;
+    private Coroutine scalingCoroutine;
+
+    public float scalingDuration = 0.5f;
+    public AnimationCurve scalingCurve;
 
     public IObjectState SmallState = new SmallerState();
     public IObjectState NormalState = new NormalState();
@@ -74,6 +78,33 @@ public class ScalableObjectController : MonoBehaviour
             ChangeState(NormalState);
         }
         // If already in LargeState, do nothing
+    }
+
+    void StartScaling(Vector3 targetScale)
+    {
+        if (scalingCoroutine != null)
+        {
+            StopCoroutine(scalingCoroutine);
+        }
+        scalingCoroutine = StartCoroutine(ScaleOverTime(targetScale));
+    }
+
+    System.Collections.IEnumerator ScaleOverTime(Vector3 targetScale)
+    {
+        Vector3 initialScale = transform.localScale;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < scalingDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / scalingDuration;
+            float curveValue = scalingCurve.Evaluate(t);
+
+            transform.localScale = Vector3.Lerp(initialScale, targetScale, curveValue);
+            yield return null;
+        }
+
+        transform.localScale = targetScale;
     }
 
     public void ChangeState(IObjectState newState)
