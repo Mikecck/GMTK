@@ -11,6 +11,7 @@ public class ScalableObjectController : MonoBehaviour
     public IObjectState NormalState = new NormalState();
     public IObjectState LargeState = new LargerState();
 
+
     void Start()
     {
         initialScale = transform.localScale;
@@ -24,30 +25,43 @@ public class ScalableObjectController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                ScaleObject(2f);
-                ChangeState(SmallState);
+                ScaleDown();
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                ScaleObject(4f);
-                ChangeState(LargeState);
+                ScaleUp();
             }
         }
     }
 
-    void OnMouseDown()
+    void ScaleDown()
     {
-        isSelected = true;
+        if (currentState == NormalState)
+        {
+            transform.localScale = initialScale * 0.5f;
+            ChangeState(SmallState);
+        }
+        else if (currentState == LargeState)
+        {
+            transform.localScale = initialScale;
+            ChangeState(NormalState);
+        }
+        // If already in SmallState, do nothing
     }
 
-    void OnMouseUp()
+    void ScaleUp()
     {
-        isSelected = false;
-    }
-
-    void ScaleObject(float scaleFactor)
-    {
-        transform.localScale = initialScale * scaleFactor;
+        if (currentState == NormalState)
+        {
+            transform.localScale = initialScale * 2f;
+            ChangeState(LargeState);
+        }
+        else if (currentState == SmallState)
+        {
+            transform.localScale = initialScale;
+            ChangeState(NormalState);
+        }
+        // If already in LargeState, do nothing
     }
 
     public void ChangeState(IObjectState newState)
@@ -55,9 +69,9 @@ public class ScalableObjectController : MonoBehaviour
         currentState = newState;
         currentState.EnterState(this);
     }
-
     public void ChangeColor(Color color)
     {
         GetComponent<SpriteRenderer>().color = color;
     }
+
 }
