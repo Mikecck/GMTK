@@ -30,9 +30,10 @@ public class GameManager : Singleton<GameManager>
         if (levelInProgress)
         {
             timeRemaining -= Time.deltaTime;
+            Debug.Log("Time Remaining: " + timeRemaining);
             if (timeRemaining <= 0)
             {
-                EndLevel(false);
+                EndLevel(true);
             }
         }
     }
