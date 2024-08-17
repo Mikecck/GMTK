@@ -26,12 +26,24 @@ public class ScalableObjectController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 ScaleDown();
+                Debug.Log("Scale Down");
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 ScaleUp();
+                Debug.Log("Scale Up");
             }
         }
+    }
+
+    void OnMouseDown()
+    {
+        isSelected = true;
+    }
+
+    void OnMouseUp()
+    {
+        isSelected = false;
     }
 
     void ScaleDown()
