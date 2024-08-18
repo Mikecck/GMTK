@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private int currentThemeIndex = 0;
-    [SerializeField] private int currentLevelIndex = 0;
     [SerializeField] private float timeLimit = 10f;
-
     private float timeRemaining;
     private bool levelInProgress = false;
     private HashSet<int> collectedBadges = new HashSet<int>(); // Collected badges
+    public ScalableObjectController scalableObject; // Assign in Inspector
+
+    public float targetScaleMultiplier = 2f; // The target scale multiplier for winning
 
     // Events to notify the UI
     public event System.Action OnLevelStart;
-    public event System.Action OnLevelEnd;
 
     protected override void Awake()
     {
@@ -27,81 +26,51 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        // Update the time remaining
         if (levelInProgress)
         {
             timeRemaining -= Time.deltaTime;
-            // Debug.Log("Time Remaining: " + timeRemaining);
             if (timeRemaining <= 0)
+            {
+                EndLevel(false);
+            }
+            else if (CheckWinningCondition() & timeRemaining >= 0)
             {
                 EndLevel(true);
             }
         }
     }
 
-    // Start the level
     public void StartLevel()
     {
         timeRemaining = timeLimit;
         levelInProgress = true;
         OnLevelStart?.Invoke();
-
-        // Initialize the current level logic here
-        LevelManager.Instance.LoadCurrentLevel(currentThemeIndex, currentLevelIndex);
     }
 
-    public void OnLevelConditionMet()
+    private bool CheckWinningCondition()
     {
-        EndLevel(true);  // End the level successfully
+        return Mathf.Approximately(scalableObject.GetCurrentScaleMultiplier(), targetScaleMultiplier);
     }
 
-    // End the level
     public void EndLevel(bool success)
     {
-        levelInProgress = false;
-        OnLevelEnd?.Invoke();
-
-        if (success && LevelManager.Instance.CheckWinningCondition(currentThemeIndex, currentLevelIndex))
+        if (success)
         {
-            GrantBadge(currentLevelIndex);
-            currentLevelIndex++;
-            if (currentLevelIndex >= LevelManager.Instance.GetLevelCount(currentThemeIndex))
-            {
-                currentLevelIndex = 0;
-                if (CheckAllBadgesCollected())
-                {
-                    UnlockNextTheme();
-                }
-            }
+            GrantBadge(0); // Badge index can be extended
+            Debug.Log("Level Completed!");
         }
-        StartLevel();
+        else
+        {
+            Debug.Log("Level Failed!");
+        }
+
+        levelInProgress = false;
+        // You can reset the level or move to the next one here
     }
 
     private void GrantBadge(int levelIndex)
     {
         collectedBadges.Add(levelIndex);
         Debug.Log("Badge granted for level: " + levelIndex);
-    }
-
-    private bool CheckAllBadgesCollected()
-    {
-        return collectedBadges.Count >= LevelManager.Instance.GetLevelCount(currentThemeIndex);
-    }
-
-    private void UnlockNextTheme()
-    {
-        Debug.Log("All badges collected. Unlocking next theme.");
-        currentThemeIndex++;
-        collectedBadges.Clear();
-    }
-
-    public float GetTimeRemaining()
-    {
-        return timeRemaining;
-    }
-
-    public bool IsLevelInProgress()
-    {
-        return levelInProgress;
     }
 }

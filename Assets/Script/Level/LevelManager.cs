@@ -7,20 +7,10 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private List<Theme> themes;
 
-    public delegate bool WinningConditionDelegate();
-    public WinningConditionDelegate OnWinningConditionCheck;
-
     public void LoadCurrentLevel(int themeIndex, int levelIndex)
     {
-        if (themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count)
+        if (IsValidLevel(themeIndex, levelIndex))
         {
-            // Exception check
-            if (themeIndex >= themes.Count || levelIndex >= themes[themeIndex].levels.Count)
-            {
-                Debug.LogError($"Level index out of bounds! ThemeIndex: {themeIndex}, LevelIndex: {levelIndex}");
-                return;
-            }
-
             string sceneName = themes[themeIndex].levels[levelIndex].sceneName;
             if (!string.IsNullOrEmpty(sceneName))
             {
@@ -33,7 +23,7 @@ public class LevelManager : Singleton<LevelManager>
         }
         else
         {
-            Debug.LogError("Level index out of bounds");
+            Debug.LogError($"Level index out of bounds! ThemeIndex: {themeIndex}, LevelIndex: {levelIndex}");
         }
     }
 
@@ -41,54 +31,48 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (themeIndex < themes.Count)
         {
+            Debug.Log("Level count: " + themes[themeIndex].levels.Count);
             return themes[themeIndex].levels.Count;
         }
         Debug.LogWarning("Theme index out of bounds!");
         return 0;
     }
 
-    public bool CheckWinningCondition(int themeIndex, int levelIndex)
+    public bool CheckWinningCondition(int themeIndex, int levelIndex, ScalableObjectController scalableObject, float targetScaleMultiplier)
     {
-        if (themeIndex >= themes.Count || levelIndex >= themes[themeIndex].levels.Count)
+        if (!IsValidLevel(themeIndex, levelIndex))
         {
             Debug.LogError($"Winning condition check failed! ThemeIndex: {themeIndex}, LevelIndex: {levelIndex} are out of bounds.");
             return false;
         }
 
-        foreach (ScalableObjectInfo info in themes[themeIndex].levels[levelIndex].scalableObjects)
+        if (scalableObject == null)
         {
-            if (info == null || info.scalableObject == null)
-            {
-                Debug.LogError("ScalableObjectController is null. Check if you proper assign corresponding object in editor.");
-                continue;
-            }
-            if (info.scalableObject.GetCurrentState() != info.targetState)
-            {
-                return false;
-            }
+            Debug.LogError("ScalableObjectController is null. Check if you properly assign the object in the editor.");
+            return false;
         }
-        return true;
+
+        // Check if the current scale multiplier matches the target scale multiplier
+        return Mathf.Approximately(scalableObject.GetCurrentScaleMultiplier(), targetScaleMultiplier);
     }
 
+    // Check if the current level is completed (Helper)
+    private bool IsValidLevel(int themeIndex, int levelIndex)
+    {
+        return themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count;
+    }
 }
 
 [System.Serializable]
 public class Theme
 {
-    public string themeName;
-    public List<Level> levels;
+    [SerializeField] public string themeName;
+    [SerializeField] public List<Level> levels;
 }
 
 [System.Serializable]
 public class Level
 {
-    public string sceneName;
-    public List<ScalableObjectInfo> scalableObjects;
-}
-
-[System.Serializable]
-public class ScalableObjectInfo
-{
-    public ScalableObjectController scalableObject;
-    public State targetState;
+    [SerializeField] public string sceneName;
+    [SerializeField] public List<ScalableObjectController> scalableObjects;
 }
