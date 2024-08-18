@@ -1,8 +1,26 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : Singleton<GameManager>
 {
     private ScalableObjectController currentSelectedObject;
+    private List<ScalableObjectController> scalableObjects = new List<ScalableObjectController>();
+
+    public void RegisterScalableObject(ScalableObjectController obj)
+    {
+        if (!scalableObjects.Contains(obj))
+        {
+            scalableObjects.Add(obj);
+        }
+    }
+
+    public void UnregisterScalableObject(ScalableObjectController obj)
+    {
+        if (scalableObjects.Contains(obj))
+        {
+            scalableObjects.Remove(obj);
+        }
+    }
 
     public void SelectObject(ScalableObjectController obj)
     {
@@ -26,13 +44,22 @@ public class GameManager : Singleton<GameManager>
     public void NotifySuccess(GameObject obj)
     {
         Debug.Log("Correct sprite enabled: " + obj.name);
-        // Here, you would check if all necessary conditions are met to proceed to the next level
         CheckForLevelCompletion();
     }
 
     private void CheckForLevelCompletion()
     {
-        // Logic to determine if all correct sprites are active
-        // and possibly calling LevelManager.Instance.GoToNextLevel();
+        // Check if all scalable objects have their correct sprite active
+        foreach (var scalableObject in scalableObjects)
+        {
+            if (!scalableObject.IsCorrectSpriteActive())
+            {
+                return; // If any object does not have the correct sprite, exit early
+            }
+        }
+
+        // All correct sprites are active, proceed to the next level
+        Debug.Log("All correct sprites are active, proceeding to the next level.");
+        LevelManager.Instance.LoadNextLevel();
     }
 }

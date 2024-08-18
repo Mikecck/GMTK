@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ScalableObjectController : MonoBehaviour
 {
@@ -15,11 +15,12 @@ public class ScalableObjectController : MonoBehaviour
     {
         objectCollider = GetComponent<Collider2D>(); // Assuming collider is attached for raycasting
         GetChildSpriteRenderers();
+        GameManager.Instance.RegisterScalableObject(this); // Register with GameManager
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        HandleInput();
+        GameManager.Instance.UnregisterScalableObject(this); // Unregister from GameManager
     }
 
     private void GetChildSpriteRenderers()
@@ -38,6 +39,11 @@ public class ScalableObjectController : MonoBehaviour
         {
             spriteRenderers[0].enabled = true;
         }
+    }
+
+    private void Update()
+    {
+        HandleInput();
     }
 
     private void HandleInput()
@@ -95,6 +101,11 @@ public class ScalableObjectController : MonoBehaviour
         {
             GameManager.Instance.DeselectCurrentObject(); // Deselect if clicking outside
         }
+    }
+
+    public bool IsCorrectSpriteActive()
+    {
+        return correctSprite.activeSelf;
     }
 
     public void SetSelected(bool selected)
