@@ -14,6 +14,13 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count)
         {
+            // Exception check
+            if (themeIndex >= themes.Count || levelIndex >= themes[themeIndex].levels.Count)
+            {
+                Debug.LogError($"Level index out of bounds! ThemeIndex: {themeIndex}, LevelIndex: {levelIndex}");
+                return;
+            }
+
             string sceneName = themes[themeIndex].levels[levelIndex].sceneName;
             if (!string.IsNullOrEmpty(sceneName))
             {
@@ -36,24 +43,33 @@ public class LevelManager : Singleton<LevelManager>
         {
             return themes[themeIndex].levels.Count;
         }
+        Debug.LogWarning("Theme index out of bounds!");
         return 0;
     }
 
     public bool CheckWinningCondition(int themeIndex, int levelIndex)
     {
-        if (themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count)
+        if (themeIndex >= themes.Count || levelIndex >= themes[themeIndex].levels.Count)
         {
-            foreach (ScalableObjectInfo info in themes[themeIndex].levels[levelIndex].scalableObjects)
-            {
-                if (info.scalableObject.GetCurrentState() != info.targetState)
-                {
-                    return false;
-                }
-            }
-            return true;
+            Debug.LogError($"Winning condition check failed! ThemeIndex: {themeIndex}, LevelIndex: {levelIndex} are out of bounds.");
+            return false;
         }
-        return false;
+
+        foreach (ScalableObjectInfo info in themes[themeIndex].levels[levelIndex].scalableObjects)
+        {
+            if (info == null || info.scalableObject == null)
+            {
+                Debug.LogError("ScalableObjectController is null. Check if you proper assign corresponding object in editor.");
+                continue;
+            }
+            if (info.scalableObject.GetCurrentState() != info.targetState)
+            {
+                return false;
+            }
+        }
+        return true;
     }
+
 }
 
 [System.Serializable]
