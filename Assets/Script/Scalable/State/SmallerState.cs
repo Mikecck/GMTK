@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class SmallerState : IObjectState
+
+[CreateAssetMenu(fileName = "SmallerState", menuName = "States/Smaller")]
+public class SmallerState : State
 {
-    public void EnterState(ScalableObjectController obj)
+    public override void EnterState(ScalableObjectController obj)
     {
-        // Logic for entering small state
-        obj.ChangeColor(Color.blue);
+        
     }
 
-    public void UpdateState(ScalableObjectController obj)
+    public override void UpdateState(ScalableObjectController obj)
     {
-        // Additional logic if needed
+        
     }
 }
+
+

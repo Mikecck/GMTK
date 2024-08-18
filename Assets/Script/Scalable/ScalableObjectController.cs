@@ -5,21 +5,19 @@ public class ScalableObjectController : MonoBehaviour
 {
     private Vector3 initialScale;
     private bool isSelected = false;
-    private IObjectState currentState;
+    public State currentState;
 
     public float scalingDuration = 0.5f;
     public AnimationCurve scalingCurve;
 
-    public IObjectState SmallState = new SmallerState();
-    public IObjectState NormalState = new NormalState();
-    public IObjectState LargeState = new LargerState();
-
+    public State SmallState;
+    public State NormalState;
+    public State LargeState;
 
     void Start()
     {
-        initialScale = transform.localScale;
-        currentState = NormalState;
-        currentState.EnterState(this);
+        if (currentState != null)
+            currentState.EnterState(this);
     }
 
     void Update()
@@ -96,14 +94,21 @@ public class ScalableObjectController : MonoBehaviour
         transform.localScale = targetScale;
     }
 
-    public void ChangeState(IObjectState newState)
+    public void ChangeState(State newState)
     {
         currentState = newState;
         currentState.EnterState(this);
     }
+
+    /* This is for Debug Only
     public void ChangeColor(Color color)
     {
         GetComponent<SpriteRenderer>().color = color;
+    }
+    */
+    public IObjectState GetCurrentState()
+    {
+        return currentState;
     }
 
 }

@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    [SerializeField] private List<Theme> themes; // List of themes (We have three themes in total)
+    [SerializeField] private List<Theme> themes;
+
+    public delegate bool WinningConditionDelegate();
+    public WinningConditionDelegate OnWinningConditionCheck;
 
     public void LoadCurrentLevel(int themeIndex, int levelIndex)
     {
-
         if (themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count)
         {
             string sceneName = themes[themeIndex].levels[levelIndex].sceneName;
@@ -36,6 +38,22 @@ public class LevelManager : Singleton<LevelManager>
         }
         return 0;
     }
+
+    public bool CheckWinningCondition(int themeIndex, int levelIndex)
+    {
+        if (themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count)
+        {
+            foreach (ScalableObjectInfo info in themes[themeIndex].levels[levelIndex].scalableObjects)
+            {
+                if (info.scalableObject.GetCurrentState() != info.targetState)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 }
 
 [System.Serializable]
@@ -49,4 +67,12 @@ public class Theme
 public class Level
 {
     public string sceneName;
+    public List<ScalableObjectInfo> scalableObjects;
+}
+
+[System.Serializable]
+public class ScalableObjectInfo
+{
+    public ScalableObjectController scalableObject;
+    public State targetState;
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -8,7 +9,7 @@ public class GameManager : Singleton<GameManager>
 
     private float timeRemaining;
     private bool levelInProgress = false;
-
+    private HashSet<int> collectedBadges = new HashSet<int>(); // Collected badges
 
     // Events to notify the UI
     public event System.Action OnLevelStart;
@@ -49,28 +50,49 @@ public class GameManager : Singleton<GameManager>
         LevelManager.Instance.LoadCurrentLevel(currentThemeIndex, currentLevelIndex);
     }
 
+    public void OnLevelConditionMet()
+    {
+        EndLevel(true);  // End the level successfully
+    }
+
     // End the level
     public void EndLevel(bool success)
     {
         levelInProgress = false;
         OnLevelEnd?.Invoke();
 
-        if (success)
+        if (success && LevelManager.Instance.CheckWinningCondition(currentThemeIndex, currentLevelIndex))
         {
+            GrantBadge(currentLevelIndex);
             currentLevelIndex++;
             if (currentLevelIndex >= LevelManager.Instance.GetLevelCount(currentThemeIndex))
             {
-                currentThemeIndex++;
                 currentLevelIndex = 0;
-                UnlockNextTheme();
+                if (CheckAllBadgesCollected())
+                {
+                    UnlockNextTheme();
+                }
             }
         }
         StartLevel();
     }
 
+    private void GrantBadge(int levelIndex)
+    {
+        collectedBadges.Add(levelIndex);
+        Debug.Log("Badge granted for level: " + levelIndex);
+    }
+
+    private bool CheckAllBadgesCollected()
+    {
+        return collectedBadges.Count >= LevelManager.Instance.GetLevelCount(currentThemeIndex);
+    }
+
     private void UnlockNextTheme()
     {
-        Debug.Log("Unlocking next theme");
+        Debug.Log("All badges collected. Unlocking next theme.");
+        currentThemeIndex++;
+        collectedBadges.Clear();
     }
 
     public float GetTimeRemaining()
