@@ -1,104 +1,105 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ScalableObjectController : MonoBehaviour
 {
-    private Vector3 initialScale;
-    private bool isSelected = false;
-    private bool isScaling = false;
+    [SerializeField]
+    private GameObject correctSprite; // This is the target sprite to identify success
 
-    [SerializeField] private float scalingDuration = 0.5f;
-    [SerializeField] private AnimationCurve scalingCurve;
+    private List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
+    private Collider2D objectCollider;
+    public bool isSelected = false;
+    private int currentSpriteIndex = 0; // Index to track the currently active sprite
 
-    [SerializeField] private float smallestScale = 0.5f; 
-    [SerializeField] private float largestScale = 2f;
-    [SerializeField] private Vector3 targetScale;
-
-    void Start()
+    private void Awake()
     {
-        initialScale = transform.localScale;
-        targetScale = initialScale;
+        objectCollider = GetComponent<Collider2D>(); // Assuming collider is attached for raycasting
+        GetChildSpriteRenderers();
     }
 
-    void Update()
+    private void Update()
     {
+        HandleInput();
+    }
+
+    private void GetChildSpriteRenderers()
+    {
+        foreach (Transform child in transform)
+        {
+            SpriteRenderer sr = child.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                spriteRenderers.Add(sr);
+                sr.enabled = false;
+            }
+        }
+
+        if (spriteRenderers.Count > 0)
+        {
+            spriteRenderers[0].enabled = true;
+        }
+    }
+
+    private void HandleInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            CheckForSelection();
+        }
+
         if (isSelected)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                ScaleDown();
+                CycleSprites(-1); // Cycle left
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                ScaleUp();
+                CycleSprites(1); // Cycle right
             }
         }
     }
 
-    void OnMouseDown()
+    private void CycleSprites(int direction)
     {
-        isSelected = !isSelected; // Toggle selection
-        Debug.Log(isSelected ? "Object selected" : "Object deselected");
+        if (spriteRenderers.Count == 0) return;
+
+        // Disable the current sprite
+        spriteRenderers[currentSpriteIndex].enabled = false;
+
+        // Adjust the index using modulo for wrapping
+        currentSpriteIndex = (currentSpriteIndex + direction + spriteRenderers.Count) % spriteRenderers.Count;
+
+        // Enable the new sprite
+        spriteRenderers[currentSpriteIndex].enabled = true;
+
+        // Check if the currently enabled sprite is the correct one
+        if (spriteRenderers[currentSpriteIndex].gameObject == correctSprite)
+        {
+            GameManager.Instance.NotifySuccess(gameObject);
+        }
     }
 
-    void ScaleDown()
+    private void CheckForSelection()
     {
-        if (isScaling) return;
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-        Vector3 nextScale = transform.localScale * 0.5f;
-
-        if (nextScale.x >= initialScale.x * smallestScale) // Ensure it doesn't go below the smallest scale
+        if (hit.collider == objectCollider)
         {
-            targetScale = nextScale;
+            if (!isSelected)
+            {
+                GameManager.Instance.SelectObject(this); // Select this object
+            }
         }
-        else
+        else if (isSelected)
         {
-            targetScale = initialScale * smallestScale;
+            GameManager.Instance.DeselectCurrentObject(); // Deselect if clicking outside
         }
-
-        StartCoroutine(AnimateScale(targetScale));
     }
 
-    void ScaleUp()
+    public void SetSelected(bool selected)
     {
-        if (isScaling) return;
-
-        Vector3 nextScale = transform.localScale * 2f;
-
-        if (nextScale.x <= initialScale.x * largestScale)
-        {
-            targetScale = nextScale;
-        }
-        else
-        {
-            targetScale = initialScale * largestScale; // Set to largest scale if above limit
-        }
-
-        StartCoroutine(AnimateScale(targetScale));
-    }
-
-    private IEnumerator AnimateScale(Vector3 targetScale)
-    {
-        isScaling = true;
-        Vector3 startScale = transform.localScale;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < scalingDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / scalingDuration;
-            float curveValue = scalingCurve.Evaluate(t);
-            transform.localScale = Vector3.Lerp(startScale, targetScale, curveValue);
-            yield return null;
-        }
-
-        transform.localScale = targetScale;
-        isScaling = false;
-    }
-
-    public float GetCurrentScaleMultiplier()
-    {
-        return transform.localScale.x / initialScale.x;
+        isSelected = selected; // Set selection state based on GameManager's decision
+        // Additional visual feedback for selection can be added here, such as highlighting
     }
 }
