@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager: MonoBehaviour
@@ -22,26 +23,13 @@ public class UIManager: MonoBehaviour
 	[SerializeField] private int maxTime = 15;
 	[SerializeField] private TextMeshProUGUI elapsedTimeText;
 	private float elapsedTime;
+	private int seconds;
 	[SerializeField] private GameObject inGameMenu;
 
-	public static UIManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
 	private void Start()
 	{
-		if (isMainMenu)
+		if (bgmSlider && sfxSlider)
 		{
 			ChangeBGMValueText();
 			ChangeSFXValueText();
@@ -54,10 +42,9 @@ public class UIManager: MonoBehaviour
 		if (isHud)
 		{
 			elapsedTime += Time.deltaTime;
-			int minutes = Mathf.FloorToInt(elapsedTime / 60);
-			int seconds = Mathf.FloorToInt(elapsedTime % 60);
+			seconds = Mathf.FloorToInt(elapsedTime % 60);
 			if (seconds <= maxTime)
-				elapsedTimeText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
+				elapsedTimeText.text = string.Format("{0:0}:{1:00}", 0, seconds);
 		}
 		
 	}
@@ -93,15 +80,18 @@ public class UIManager: MonoBehaviour
 
 	public void Theme1Selected()
 	{
-		LevelManager.Instance.LoadCurrentLevel(0, 0);
+		ToggleThemesPanel();
+		SceneManager.LoadScene("T1L1");
 	}
 	public void Theme2Selected()
 	{
-		LevelManager.Instance.LoadCurrentLevel(1, 0);
+		ToggleThemesPanel();
+		SceneManager.LoadScene("T2L1");
 	}
 	public void Theme3Selected()
 	{
-		LevelManager.Instance.LoadCurrentLevel(2, 0);
+		ToggleThemesPanel();
+		SceneManager.LoadScene("T3L1");
 	}
 
 	public void ToggleInGameMenu()
@@ -121,6 +111,35 @@ public class UIManager: MonoBehaviour
 			inGameMenu.SetActive(false);
 		}
 		
+	}
+
+	public void ToggleSettingsPanelInGame()
+	{
+		if (!settingsPanel.activeSelf)
+		{
+			inGameMenu.SetActive(false);
+			settingsPanel.SetActive(true);
+		}
+		else
+		{
+			inGameMenu.SetActive(true);
+			settingsPanel.SetActive(false);
+		}
+	}
+
+	public void InGame2MainMenu()
+	{
+		SceneManager.LoadScene("MainMenu");
+	}
+
+	public void InGame2Settings()
+	{
+		ToggleSettingsPanelInGame();
+	}
+
+	public void InGame2LevelSelection()
+	{
+		SceneManager.LoadScene("LevelSelection");
 	}
 
 	public void ZoomInCam()
