@@ -10,17 +10,11 @@ public class ScalableObjectController : MonoBehaviour
     private Collider2D objectCollider;
     public bool isSelected = false;
     private int currentSpriteIndex = 0; // Index to track the currently active sprite
-
+    private bool isCorrectSpriteSelected = false;
     private void Awake()
     {
         objectCollider = GetComponent<Collider2D>(); // Assuming collider is attached for raycasting
         GetChildSpriteRenderers();
-        GameManager.Instance.RegisterScalableObject(this); // Register with GameManager
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.Instance.UnregisterScalableObject(this); // Unregister from GameManager
     }
 
     private void GetChildSpriteRenderers()
@@ -79,14 +73,21 @@ public class ScalableObjectController : MonoBehaviour
         // Enable the new sprite
         spriteRenderers[currentSpriteIndex].enabled = true;
 
-        // Check if the currently enabled sprite is the correct one
         if (spriteRenderers[currentSpriteIndex].gameObject == correctSprite)
         {
-            GameManager.Instance.NotifySuccess(gameObject);
+            if (!isCorrectSpriteSelected)
+            {
+                isCorrectSpriteSelected = true;
+                GameManager.Instance.NotifySpriteCorrect(this);
+            }
+        }
+        else
+        {
+            isCorrectSpriteSelected = false;
         }
     }
 
-    private void CheckForSelection()
+        private void CheckForSelection()
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
@@ -105,7 +106,7 @@ public class ScalableObjectController : MonoBehaviour
 
     public bool IsCorrectSpriteActive()
     {
-        return correctSprite.activeSelf;
+        return isCorrectSpriteSelected;
     }
 
     public void SetSelected(bool selected)

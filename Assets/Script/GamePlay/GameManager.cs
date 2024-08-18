@@ -1,25 +1,32 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     private ScalableObjectController currentSelectedObject;
-    private List<ScalableObjectController> scalableObjects = new List<ScalableObjectController>();
 
-    public void RegisterScalableObject(ScalableObjectController obj)
+    [SerializeField]
+    private List<ScalableObjectController> scalableObjects; // List of scalable objects in the level
+
+    void OnEnable()
     {
-        if (!scalableObjects.Contains(obj))
-        {
-            scalableObjects.Add(obj);
-        }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void UnregisterScalableObject(ScalableObjectController obj)
+    void OnDisable()
     {
-        if (scalableObjects.Contains(obj))
-        {
-            scalableObjects.Remove(obj);
-        }
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindAndAssignScalableObjects();
+    }
+
+    void FindAndAssignScalableObjects()
+    {
+        scalableObjects = new List<ScalableObjectController>(FindObjectsOfType<ScalableObjectController>());
     }
 
     public void SelectObject(ScalableObjectController obj)
@@ -41,25 +48,34 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void NotifySuccess(GameObject obj)
+    public void NotifySpriteCorrect(ScalableObjectController obj)
     {
         Debug.Log("Correct sprite enabled: " + obj.name);
+        // Check the status of all objects
         CheckForLevelCompletion();
     }
 
     private void CheckForLevelCompletion()
     {
-        // Check if all scalable objects have their correct sprite active
+        bool allCorrect = true;
         foreach (var scalableObject in scalableObjects)
         {
             if (!scalableObject.IsCorrectSpriteActive())
             {
-                return; // If any object does not have the correct sprite, exit early
+                allCorrect = false;
+                break;  // Exit early if any object is not correct
             }
         }
 
-        // All correct sprites are active, proceed to the next level
-        Debug.Log("All correct sprites are active, proceeding to the next level.");
-        LevelManager.Instance.LoadNextLevel();
+        if (allCorrect)
+        {
+            Debug.Log("All correct sprites are active, proceeding to the next level.");
+            LevelManager.Instance.LoadNextLevel();  // Load the next level correctly interfacing with LevelManager
+        }
+        else
+        {
+            Debug.Log("Not all correct sprites are active yet.");
+        }
     }
+
 }

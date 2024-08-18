@@ -59,9 +59,10 @@ public class LevelManager : Singleton<LevelManager>
         }
         else
         {
-            Debug.Log("No more levels to load!");
+            Debug.Log("No more levels to load! Completed all themes.");
         }
     }
+
 
     private bool IsValidLevel(int themeIndex, int levelIndex)
     {
