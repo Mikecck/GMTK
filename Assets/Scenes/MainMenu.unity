@@ -2207,6 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119dad598982da444a874edf9cce68be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainMenu: 1
   cam: {fileID: 1359786480}
   mainMenu: {fileID: 1846346079}
   settingsPanel: {fileID: 476806863}
@@ -2215,6 +2216,8 @@ MonoBehaviour:
   bgmValueText: {fileID: 618164995}
   sfxSlider: {fileID: 103168541}
   sfxValueText: {fileID: 1198789024}
+  maxTime: 15
+  elapsedTimeText: {fileID: 0}
 --- !u!4 &832578078
 Transform:
   m_ObjectHideFlags: 0
