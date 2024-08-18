@@ -48,9 +48,14 @@ MonoBehaviour:
   - themeName: Watermelon
     levels:
     - sceneName: Demo Scene
+      scalableObjects:
+      - scalableObject: {fileID: 0}
+        targetState: {fileID: 11400000, guid: b9dedce2f79cf5648b44fa21b3e372e3, type: 2}
   - themeName: The Zoo
     levels:
     - sceneName: DragObject
+      scalableObjects: []
   - themeName: A Day In the Life
     levels:
     - sceneName: SampleScene
+      scalableObjects: []

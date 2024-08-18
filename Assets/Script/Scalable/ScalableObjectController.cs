@@ -5,6 +5,7 @@ public class ScalableObjectController : MonoBehaviour
 {
     private Vector3 initialScale;
     private bool isSelected = false;
+    private bool isScaling = false;
     public State currentState;
 
     public float scalingDuration = 0.5f;
@@ -16,6 +17,7 @@ public class ScalableObjectController : MonoBehaviour
 
     void Start()
     {
+        initialScale = transform.localScale; // Add the initial scale
         if (currentState != null)
             currentState.EnterState(this);
     }
@@ -49,6 +51,8 @@ public class ScalableObjectController : MonoBehaviour
 
     void ScaleDown()
     {
+        if (isScaling) return;
+
         if (currentState == NormalState)
         {
             StartCoroutine(AnimateScale(initialScale * 0.5f));
@@ -64,6 +68,8 @@ public class ScalableObjectController : MonoBehaviour
 
     void ScaleUp()
     {
+        if (isScaling) return;
+
         if (currentState == NormalState)
         {
             StartCoroutine(AnimateScale(initialScale * 2f));
@@ -78,7 +84,8 @@ public class ScalableObjectController : MonoBehaviour
     }
 
     private IEnumerator AnimateScale(Vector3 targetScale)
-    {
+    {   
+        isScaling = true;
         Vector3 startScale = transform.localScale;
         float elapsedTime = 0f;
 
@@ -92,6 +99,7 @@ public class ScalableObjectController : MonoBehaviour
         }
 
         transform.localScale = targetScale;
+        isScaling = false;
     }
 
     public void ChangeState(State newState)
@@ -106,7 +114,7 @@ public class ScalableObjectController : MonoBehaviour
         GetComponent<SpriteRenderer>().color = color;
     }
     */
-    public IObjectState GetCurrentState()
+    public State GetCurrentState()
     {
         return currentState;
     }
