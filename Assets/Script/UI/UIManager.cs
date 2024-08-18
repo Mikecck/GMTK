@@ -8,8 +8,10 @@ public class UIManager: MonoBehaviour
 {
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject settingsMenu;
-    [SerializeField] private Slider bgmSlider;
+    [SerializeField] private GameObject settingsPanel;
+	[SerializeField] private GameObject themesPanel;
+
+	[SerializeField] private Slider bgmSlider;
     [SerializeField] private TextMeshProUGUI bgmValueText;
     [SerializeField] private Slider sfxSlider;
 	[SerializeField] private TextMeshProUGUI sfxValueText;
@@ -36,22 +38,49 @@ public class UIManager: MonoBehaviour
         ChangeSFXValueText();
 	}
 
-	public void ToggleSettingsMenu()
+	public void ToggleSettingsPanel()
     {
-        if (!settingsMenu.activeSelf)
+        if (!settingsPanel.activeSelf)
         {
-            settingsMenu.SetActive(true);
+			settingsPanel.SetActive(true);
             mainMenu.SetActive(false);
-            ZoomInCam();
+            //ZoomInCam();
 		}
         else
         {
-			settingsMenu.SetActive(false);
+			settingsPanel.SetActive(false);
 			mainMenu.SetActive(true);
-			ZoomOutCam();
+			//ZoomOutCam();
 		}
     }
-    public void ZoomInCam()
+	public void ToggleThemesPanel()
+	{
+		if (!themesPanel.activeSelf)
+		{
+			themesPanel.SetActive(true);
+			mainMenu.SetActive(false);
+		}
+		else
+		{
+			themesPanel.SetActive(false);
+			mainMenu.SetActive(true);
+		}
+	}
+
+	public void Theme1Selected()
+	{
+		LevelManager.Instance.LoadCurrentLevel(0, 0);
+	}
+	public void Theme2Selected()
+	{
+		LevelManager.Instance.LoadCurrentLevel(1, 0);
+	}
+	public void Theme3Selected()
+	{
+		LevelManager.Instance.LoadCurrentLevel(2, 0);
+	}
+
+	public void ZoomInCam()
     {
 		cam.GetComponent<Animator>().SetBool("zoomIn", true);
     }
@@ -68,6 +97,15 @@ public class UIManager: MonoBehaviour
 	public void ChangeSFXValueText()
 	{
 		sfxValueText.text = sfxSlider.value.ToString();
+	}
+
+	public void QuitGame()
+	{
+#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+#else
+		Application.Quit();
+#endif
 	}
 }
 
