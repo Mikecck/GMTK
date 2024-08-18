@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c0e3676c047c549a471d9871d2733e, type: 3}
+  m_Name: 1-1
+  m_EditorClassIdentifier: 
+  themeId: 1
+  levelId: 1
+  HiddenImage: {fileID: 21300000, guid: 623c047292218b1428d0e532fcfee443, type: 3}
+  revealedImage: {fileID: 21300000, guid: aae56f0855f71624e868b914d3a9c478, type: 3}
+  stamp: {fileID: 0}
+  isVisited: 0
+  isFinished: 0
+  timeUsed: 0
