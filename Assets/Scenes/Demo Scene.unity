@@ -236,7 +236,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3046751418382559218, guid: bd3b91221530b82489115d07c3827fe9, type: 3}
+      propertyPath: themes.Array.data[0].levels.Array.data[0].scalableObjects.Array.data[0].targetState
+      value: 
+      objectReference: {fileID: 11400000, guid: b9dedce2f79cf5648b44fa21b3e372e3, type: 2}
+    - target: {fileID: 3046751418382559218, guid: bd3b91221530b82489115d07c3827fe9, type: 3}
       propertyPath: themes.Array.data[0].levels.Array.data[0].scalableObjects.Array.data[0].scalableObject
+      value: 
+      objectReference: {fileID: 3638869074726953986}
+    - target: {fileID: 3046751418382559218, guid: bd3b91221530b82489115d07c3827fe9, type: 3}
+      propertyPath: themes.Array.data[0].levels.Array.data[0].scalableObjects.Array.data[1].scalableObject
       value: 
       objectReference: {fileID: 3638869074726953986}
     m_RemovedComponents: []
@@ -569,7 +577,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 324819790571281291, guid: b915aaf04b65d9b44a8dc0b58e130bab, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8795984146325105139, guid: b915aaf04b65d9b44a8dc0b58e130bab, type: 3}
+    - {fileID: 5059893185739327817, guid: b915aaf04b65d9b44a8dc0b58e130bab, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b915aaf04b65d9b44a8dc0b58e130bab, type: 3}
