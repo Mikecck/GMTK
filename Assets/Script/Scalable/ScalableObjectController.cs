@@ -29,12 +29,12 @@ public class ScalableObjectController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 ScaleDown();
-                Debug.Log("Scale Down");
+                Debug.Log("Input: Scale Down");
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 ScaleUp();
-                Debug.Log("Scale Up");
+                Debug.Log("Input: Scale Up");
             }
         }
     }
@@ -57,11 +57,13 @@ public class ScalableObjectController : MonoBehaviour
         {
             StartCoroutine(AnimateScale(initialScale * 0.5f));
             ChangeState(SmallState);
+            Debug.Log("Scale down to Small State");
         }
         else if (currentState == LargeState)
         {
             StartCoroutine(AnimateScale(initialScale));
             ChangeState(NormalState);
+            Debug.Log("Scale down to Normal State");
         }
         // If already in SmallState, do nothing
     }
@@ -74,11 +76,13 @@ public class ScalableObjectController : MonoBehaviour
         {
             StartCoroutine(AnimateScale(initialScale * 2f));
             ChangeState(LargeState);
+            Debug.Log("Scale up to Large State");
         }
         else if (currentState == SmallState)
         {
             StartCoroutine(AnimateScale(initialScale));
             ChangeState(NormalState);
+            Debug.Log("Scale up to Normal State");
         }
         // If already in LargeState, do nothing
     }
