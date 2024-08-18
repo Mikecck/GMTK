@@ -1,25 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class ScalableObjectController : MonoBehaviour
 {
     private Vector3 initialScale;
     private bool isSelected = false;
     private bool isScaling = false;
-    public State currentState;
 
-    public float scalingDuration = 0.5f;
-    public AnimationCurve scalingCurve;
+    [SerializeField] private float scalingDuration = 0.5f;
+    [SerializeField] private AnimationCurve scalingCurve;
 
-    public State SmallState;
-    public State NormalState;
-    public State LargeState;
+    [SerializeField] private float smallestScale = 0.5f; 
+    [SerializeField] private float largestScale = 2f;
+    [SerializeField] private Vector3 targetScale;
 
     void Start()
     {
-        initialScale = transform.localScale; // Add the initial scale
-        if (currentState != null)
-            currentState.EnterState(this);
+        initialScale = transform.localScale;
+        targetScale = initialScale;
     }
 
     void Update()
@@ -29,66 +28,58 @@ public class ScalableObjectController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 ScaleDown();
-                Debug.Log("Input: Scale Down");
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 ScaleUp();
-                Debug.Log("Input: Scale Up");
             }
         }
     }
 
     void OnMouseDown()
     {
-        isSelected = true;
-    }
-
-    void OnMouseUp()
-    {
-        isSelected = false;
+        isSelected = !isSelected; // Toggle selection
+        Debug.Log(isSelected ? "Object selected" : "Object deselected");
     }
 
     void ScaleDown()
     {
         if (isScaling) return;
 
-        if (currentState == NormalState)
+        Vector3 nextScale = transform.localScale * 0.5f;
+
+        if (nextScale.x >= initialScale.x * smallestScale) // Ensure it doesn't go below the smallest scale
         {
-            StartCoroutine(AnimateScale(initialScale * 0.5f));
-            ChangeState(SmallState);
-            Debug.Log("Scale down to Small State");
+            targetScale = nextScale;
         }
-        else if (currentState == LargeState)
+        else
         {
-            StartCoroutine(AnimateScale(initialScale));
-            ChangeState(NormalState);
-            Debug.Log("Scale down to Normal State");
+            targetScale = initialScale * smallestScale;
         }
-        // If already in SmallState, do nothing
+
+        StartCoroutine(AnimateScale(targetScale));
     }
 
     void ScaleUp()
     {
         if (isScaling) return;
 
-        if (currentState == NormalState)
+        Vector3 nextScale = transform.localScale * 2f;
+
+        if (nextScale.x <= initialScale.x * largestScale)
         {
-            StartCoroutine(AnimateScale(initialScale * 2f));
-            ChangeState(LargeState);
-            Debug.Log("Scale up to Large State");
+            targetScale = nextScale;
         }
-        else if (currentState == SmallState)
+        else
         {
-            StartCoroutine(AnimateScale(initialScale));
-            ChangeState(NormalState);
-            Debug.Log("Scale up to Normal State");
+            targetScale = initialScale * largestScale; // Set to largest scale if above limit
         }
-        // If already in LargeState, do nothing
+
+        StartCoroutine(AnimateScale(targetScale));
     }
 
     private IEnumerator AnimateScale(Vector3 targetScale)
-    {   
+    {
         isScaling = true;
         Vector3 startScale = transform.localScale;
         float elapsedTime = 0f;
@@ -106,21 +97,8 @@ public class ScalableObjectController : MonoBehaviour
         isScaling = false;
     }
 
-    public void ChangeState(State newState)
+    public float GetCurrentScaleMultiplier()
     {
-        currentState = newState;
-        currentState.EnterState(this);
+        return transform.localScale.x / initialScale.x;
     }
-
-    /* This is for Debug Only
-    public void ChangeColor(Color color)
-    {
-        GetComponent<SpriteRenderer>().color = color;
-    }
-    */
-    public State GetCurrentState()
-    {
-        return currentState;
-    }
-
 }
