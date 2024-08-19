@@ -11,4 +11,9 @@ public class LevelCardManager : MonoBehaviour
     [SerializeField] private RawImage[] images;
     [SerializeField] private GameObject[] stamps;
     [SerializeField] private TextMeshProUGUI[] timeTexts;
+
+	public void DisplayCard()
+    {
+
+    }
 }

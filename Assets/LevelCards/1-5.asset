@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: 1-5
   m_EditorClassIdentifier: 
   themeId: 1
-  levelId: 1
-  HiddenImage: {fileID: 21300000, guid: 623c047292218b1428d0e532fcfee443, type: 3}
-  revealedImage: {fileID: 21300000, guid: aae56f0855f71624e868b914d3a9c478, type: 3}
-  stamp: {fileID: 0}
+  levelId: 5
+  image: {fileID: 21300000, guid: 0eb8ca8774bfeba448912211b43fd22e, type: 3}
   isVisited: 0
   isFinished: 0
   timeUsed: 0
