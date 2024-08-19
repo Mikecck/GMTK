@@ -24,6 +24,16 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField]
     private int currentLevelIndex = 0;
 
+    public int CurrentThemeIndex
+    {
+        get { return currentThemeIndex; }
+    }
+
+    public int CurrentLevelIndex
+    {
+        get { return currentLevelIndex; }
+    }
+
     public void LoadCurrentLevel()
     {
         if (IsValidLevel(currentThemeIndex, currentLevelIndex))
@@ -53,13 +63,20 @@ public class LevelManager : Singleton<LevelManager>
         }
         else if (IsValidTheme(currentThemeIndex + 1))
         {
-            currentThemeIndex++;
-            currentLevelIndex = 0;
-            LoadCurrentLevel();
+            if (BadgeManager.Instance.AreAllBadgesCollected(currentThemeIndex))
+            {
+                currentThemeIndex++;
+                currentLevelIndex = 0;
+                LoadCurrentLevel();
+            }
+            else
+            {
+                Debug.LogError("Cannot load next theme, all badges not collected.");
+            }
         }
         else
         {
-            Debug.Log("No more levels to load! Completed all themes.");
+            Debug.Log("No more levels to load!");
         }
     }
 

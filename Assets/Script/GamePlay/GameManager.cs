@@ -5,13 +5,19 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     private ScalableObjectController currentSelectedObject;
+    [SerializeField]
+    private List<ScalableObjectController> scalableObjects;
 
     [SerializeField]
-    private List<ScalableObjectController> scalableObjects; // List of scalable objects in the level
+    private float timeLimit = 15f;  // Time limit in seconds for the current level
+
+    private float timeRemaining;
+    private bool levelComplete = false;
 
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        StartLevelTimer();
     }
 
     void OnDisable()
@@ -22,6 +28,34 @@ public class GameManager : Singleton<GameManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         FindAndAssignScalableObjects();
+        StartLevelTimer();
+    }
+
+    void Update()
+    {
+        if (!levelComplete)
+        {
+            UpdateTimer();
+        }
+    }
+
+    void StartLevelTimer()
+    {
+        timeRemaining = timeLimit;
+        levelComplete = false;
+    }
+
+    void UpdateTimer()
+    {
+        if (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+            if (timeRemaining <= 0)
+            {
+                Debug.Log("Time's up! Proceeding to the next level.");
+                FailLevel();
+            }
+        }
     }
 
     void FindAndAssignScalableObjects()
@@ -51,7 +85,6 @@ public class GameManager : Singleton<GameManager>
     public void NotifySpriteCorrect(ScalableObjectController obj)
     {
         Debug.Log("Correct sprite enabled: " + obj.name);
-        // Check the status of all objects
         CheckForLevelCompletion();
     }
 
@@ -69,8 +102,10 @@ public class GameManager : Singleton<GameManager>
 
         if (allCorrect)
         {
-            Debug.Log("All correct sprites are active, proceeding to the next level.");
-            LevelManager.Instance.LoadNextLevel();  // Load the next level correctly interfacing with LevelManager
+            levelComplete = true;
+            Debug.Log("All correct sprites are active within time, awarding badge and proceeding to the next level.");
+            AwardBadge();
+            LevelManager.Instance.LoadNextLevel();  // Load the next level
         }
         else
         {
@@ -78,4 +113,17 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private void AwardBadge()
+    {
+        int currentTheme = LevelManager.Instance.CurrentThemeIndex;
+        int currentLevel = LevelManager.Instance.CurrentLevelIndex;
+        BadgeManager.Instance.AwardBadge(currentTheme, currentLevel);
+    }
+
+    private void FailLevel()
+    {
+        levelComplete = true;
+        Debug.Log("Level failed, proceeding to the next level without awarding badge.");
+        LevelManager.Instance.LoadNextLevel();  // Load the next level
+    }
 }

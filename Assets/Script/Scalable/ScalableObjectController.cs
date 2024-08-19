@@ -13,7 +13,7 @@ public class ScalableObjectController : MonoBehaviour
     private bool isCorrectSpriteSelected = false;
     private void Awake()
     {
-        objectCollider = GetComponent<Collider2D>(); // Assuming collider is attached for raycasting
+        objectCollider = GetComponent<Collider2D>();
         GetChildSpriteRenderers();
     }
 
@@ -111,7 +111,7 @@ public class ScalableObjectController : MonoBehaviour
 
     public void SetSelected(bool selected)
     {
-        isSelected = selected; // Set selection state based on GameManager's decision
+        isSelected = selected;
         // Additional visual feedback for selection can be added here, such as highlighting
     }
 }

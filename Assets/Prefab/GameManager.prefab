@@ -44,6 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9993b53c591cd4449b74619402fdd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentThemeIndex: 0
-  currentLevelIndex: 0
-  timeLimit: 10
+  scalableObjects: []
+  timeLimit: 5
