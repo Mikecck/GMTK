@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ScalableObjectController : MonoBehaviour
 {
@@ -10,16 +10,11 @@ public class ScalableObjectController : MonoBehaviour
     private Collider2D objectCollider;
     public bool isSelected = false;
     private int currentSpriteIndex = 0; // Index to track the currently active sprite
-
+    private bool isCorrectSpriteSelected = false;
     private void Awake()
     {
-        objectCollider = GetComponent<Collider2D>(); // Assuming collider is attached for raycasting
+        objectCollider = GetComponent<Collider2D>();
         GetChildSpriteRenderers();
-    }
-
-    private void Update()
-    {
-        HandleInput();
     }
 
     private void GetChildSpriteRenderers()
@@ -38,6 +33,11 @@ public class ScalableObjectController : MonoBehaviour
         {
             spriteRenderers[0].enabled = true;
         }
+    }
+
+    private void Update()
+    {
+        HandleInput();
     }
 
     private void HandleInput()
@@ -73,14 +73,21 @@ public class ScalableObjectController : MonoBehaviour
         // Enable the new sprite
         spriteRenderers[currentSpriteIndex].enabled = true;
 
-        // Check if the currently enabled sprite is the correct one
         if (spriteRenderers[currentSpriteIndex].gameObject == correctSprite)
         {
-            GameManager.Instance.NotifySuccess(gameObject);
+            if (!isCorrectSpriteSelected)
+            {
+                isCorrectSpriteSelected = true;
+                GameManager.Instance.NotifySpriteCorrect(this);
+            }
+        }
+        else
+        {
+            isCorrectSpriteSelected = false;
         }
     }
 
-    private void CheckForSelection()
+        private void CheckForSelection()
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
@@ -97,9 +104,14 @@ public class ScalableObjectController : MonoBehaviour
         }
     }
 
+    public bool IsCorrectSpriteActive()
+    {
+        return isCorrectSpriteSelected;
+    }
+
     public void SetSelected(bool selected)
     {
-        isSelected = selected; // Set selection state based on GameManager's decision
+        isSelected = selected;
         // Additional visual feedback for selection can be added here, such as highlighting
     }
 }
