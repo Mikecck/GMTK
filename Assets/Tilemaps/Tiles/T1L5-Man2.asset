@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: T1L5-Man2
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -1689008050, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
-  - {fileID: 1274957363, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
-  - {fileID: 952347909, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
-  - {fileID: 937928312, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
-  - {fileID: -427402584, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
-  - {fileID: -1809169431, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
+  - {fileID: 1627271954, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
+  - {fileID: 2119526570, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
+  - {fileID: -1665329559, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
+  - {fileID: -1139531831, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
+  - {fileID: 1975941003, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
+  - {fileID: -1838806898, guid: 778969f7b069d4b48979b356b2e84aaa, type: 3}
   m_MinSpeed: 9
   m_MaxSpeed: 9
   m_AnimationStartTime: 0

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: T1L5-Man1
+  m_Name: T1L5-Man3
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -1039629492, guid: 9bd418375d7a7f7469c2f6893f62b08d, type: 3}
-  - {fileID: 2063817075, guid: 9bd418375d7a7f7469c2f6893f62b08d, type: 3}
-  - {fileID: -1657890749, guid: 9bd418375d7a7f7469c2f6893f62b08d, type: 3}
-  - {fileID: -1698153267, guid: 9bd418375d7a7f7469c2f6893f62b08d, type: 3}
-  - {fileID: 1892726612, guid: 9bd418375d7a7f7469c2f6893f62b08d, type: 3}
-  - {fileID: -554228300, guid: 9bd418375d7a7f7469c2f6893f62b08d, type: 3}
+  - {fileID: -1117834073, guid: fd918410e7da5c84e83e3766942222ea, type: 3}
+  - {fileID: 725009498, guid: fd918410e7da5c84e83e3766942222ea, type: 3}
+  - {fileID: 633081748, guid: fd918410e7da5c84e83e3766942222ea, type: 3}
+  - {fileID: 951062934, guid: fd918410e7da5c84e83e3766942222ea, type: 3}
+  - {fileID: -724488613, guid: fd918410e7da5c84e83e3766942222ea, type: 3}
+  - {fileID: -1445332167, guid: fd918410e7da5c84e83e3766942222ea, type: 3}
   m_MinSpeed: 9
   m_MaxSpeed: 9
   m_AnimationStartTime: 0
