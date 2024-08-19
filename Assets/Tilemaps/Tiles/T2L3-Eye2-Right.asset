@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: T2L3-Eye3
+  m_Name: T2L3-Eye2-Right
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 77bcfcf2214089a4098ff605b0be263a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50e5d248c5bb97144a54b60ea967dae8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
