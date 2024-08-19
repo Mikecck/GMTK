@@ -20,11 +20,15 @@ public class UIManager: MonoBehaviour
 
 	[Header("For Game Scenes")]
 	[SerializeField] private bool isHud;
+	[SerializeField, Range(1, 5)] private int levelId;
 	[SerializeField] private int maxTime = 15;
 	[SerializeField] private TextMeshProUGUI elapsedTimeText;
 	private float elapsedTime;
 	private int seconds;
 	[SerializeField] private GameObject inGameMenu;
+	[SerializeField] private GameObject levelSelection;
+	[SerializeField] private LevelSelector levelSelector;
+	[SerializeField] private LevelCardManager cardManager;
 
 
 	private void Start()
@@ -102,6 +106,7 @@ public class UIManager: MonoBehaviour
 			isHud = false;
 			// open menu
 			inGameMenu.SetActive(true);
+			UpdateLevelCard();
 		}
 		else
 		{
@@ -111,6 +116,12 @@ public class UIManager: MonoBehaviour
 			inGameMenu.SetActive(false);
 		}
 		
+	}
+
+	private void UpdateLevelCard()
+	{
+		cardManager.cards[levelId - 1].isVisited = true;
+		cardManager.cards[levelId - 1].timeUsed = seconds;
 	}
 
 	public void ToggleSettingsPanelInGame()
@@ -127,6 +138,20 @@ public class UIManager: MonoBehaviour
 		}
 	}
 
+	public void ToggleLevelSelection()
+	{
+		if (!levelSelection.activeSelf)
+		{
+			inGameMenu.SetActive(false);
+			levelSelection.SetActive(true);
+		}
+		else
+		{
+			inGameMenu.SetActive(true);
+			levelSelection.SetActive(false);
+		}
+	}
+
 	public void InGame2MainMenu()
 	{
 		SceneManager.LoadScene("MainMenu");
@@ -139,7 +164,7 @@ public class UIManager: MonoBehaviour
 
 	public void InGame2LevelSelection()
 	{
-		SceneManager.LoadScene("LevelSelection");
+		ToggleLevelSelection();
 	}
 
 	public void ZoomInCam()

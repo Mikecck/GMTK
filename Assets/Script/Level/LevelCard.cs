@@ -9,7 +9,7 @@ public class LevelCard : ScriptableObject
 	public int themeId;
 	public int levelId;
 	public Sprite image;
-	[HideInInspector] public bool isVisited; // isVisited ? show image & name : hide image & name
-	[HideInInspector] public bool isFinished; // isFinished ? stamp : none
+	[HideInInspector] public bool isVisited; // isVisited ? show card image : show unknown image
+	[HideInInspector] public bool isFinished; // isFinished ? show stamp : hide stamp
 	[HideInInspector] public int timeUsed;
 }

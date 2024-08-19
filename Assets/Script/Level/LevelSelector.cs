@@ -19,10 +19,18 @@ public class LevelSelector : MonoBehaviour
 	float[] pos;
 	private float distance;
 
+	public int levelId;
+
 	private void Start()
 	{
 		Prepare();
 	}
+
+	private void OnEnable()
+	{
+		scrollPos = 0;
+	}
+
 	private void Update()
 	{
 		Swipe();
@@ -130,8 +138,4 @@ public class LevelSelector : MonoBehaviour
 		}
 	}
 
-	public void LevelSelection2InGame()
-	{
-
-	}
 }
