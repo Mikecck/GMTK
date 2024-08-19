@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -102,7 +102,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 258650d72c4e4ec4186eff98f2160cd0
-      internalID: -639469542
+      spriteID: 31b11be1c988d2647be7dcb64e5dcb5e
+      internalID: -1610518244
       vertices: []
       indices: 
       edges: []
@@ -121,9 +121,9 @@ TextureImporter:
       name: wave_1
       rect:
         serializedVersion: 2
-        x: 400
+        x: 496
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672231c9a254bed488fda65c381f957a
-      internalID: 627839583
+      spriteID: c109fa16a32516c459a775ee9b613108
+      internalID: 2083851382
       vertices: []
       indices: 
       edges: []
@@ -142,9 +142,9 @@ TextureImporter:
       name: wave_2
       rect:
         serializedVersion: 2
-        x: 800
+        x: 992
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68e9528b92dc6fe4e8bdab42c5be3beb
-      internalID: 965473005
+      spriteID: a066e8ddbefa79b45a87b10862252719
+      internalID: 195281814
       vertices: []
       indices: 
       edges: []
@@ -163,9 +163,9 @@ TextureImporter:
       name: wave_3
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 1488
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d373a30998b15f4fa0f0a6b52523ae6
-      internalID: 1019282107
+      spriteID: b3add7e086a32c1418d8465807e8ee97
+      internalID: 1808655954
       vertices: []
       indices: 
       edges: []
@@ -184,9 +184,9 @@ TextureImporter:
       name: wave_4
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 1984
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -195,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54939254bf56c594cbffd110a4e86c07
-      internalID: -1124439300
+      spriteID: e55ea188862b85d4687621f363ebd23b
+      internalID: 1936810022
       vertices: []
       indices: 
       edges: []
@@ -205,9 +205,9 @@ TextureImporter:
       name: wave_5
       rect:
         serializedVersion: 2
-        x: 2000
+        x: 2480
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2176e26696821dd4b98866566e38028d
-      internalID: -485422230
+      spriteID: 549ae10c8dd38ab4baf4df5a961db24b
+      internalID: 339600447
       vertices: []
       indices: 
       edges: []
@@ -226,9 +226,9 @@ TextureImporter:
       name: wave_6
       rect:
         serializedVersion: 2
-        x: 2400
+        x: 2976
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -237,8 +237,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5376b90aa630444883e3c1ea9b4e39b
-      internalID: 1205895273
+      spriteID: 28fd31b2e1736c041b9412b29be6fd3b
+      internalID: 637173624
       vertices: []
       indices: 
       edges: []
@@ -247,9 +247,9 @@ TextureImporter:
       name: wave_7
       rect:
         serializedVersion: 2
-        x: 2800
+        x: 3472
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -258,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b572857dc22cfb41a9c4c45e94938f6
-      internalID: -988114068
+      spriteID: 49298f31453271643b5cd4a55db05ae4
+      internalID: -382271854
       vertices: []
       indices: 
       edges: []
@@ -268,9 +268,9 @@ TextureImporter:
       name: wave_8
       rect:
         serializedVersion: 2
-        x: 3200
+        x: 3968
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -279,8 +279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a6d687281474a04ebd6629168edc056
-      internalID: -1910539047
+      spriteID: 84ca0aa9827a72c4ab8bfb746ae8c7aa
+      internalID: 1689347412
       vertices: []
       indices: 
       edges: []
@@ -289,9 +289,9 @@ TextureImporter:
       name: wave_9
       rect:
         serializedVersion: 2
-        x: 3600
+        x: 4464
         y: 0
-        width: 400
+        width: 496
         height: 279
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -300,8 +300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 963d26a81f1bb444cb44a1a3e0f7e253
-      internalID: -386965690
+      spriteID: a9d86c61db7ee5a4d87b6a8254b0d1bd
+      internalID: 1230862227
       vertices: []
       indices: 
       edges: []
@@ -317,16 +317,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wave_0: -639469542
-      wave_1: 627839583
-      wave_2: 965473005
-      wave_3: 1019282107
-      wave_4: -1124439300
-      wave_5: -485422230
-      wave_6: 1205895273
-      wave_7: -988114068
-      wave_8: -1910539047
-      wave_9: -386965690
+      wave_0: -1610518244
+      wave_1: 2083851382
+      wave_2: 195281814
+      wave_3: 1808655954
+      wave_4: 1936810022
+      wave_5: 339600447
+      wave_6: 637173624
+      wave_7: -382271854
+      wave_8: 1689347412
+      wave_9: 1230862227
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

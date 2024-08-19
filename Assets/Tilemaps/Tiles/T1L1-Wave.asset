@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: T1L1-Wave
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -639469542, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: 627839583, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: 965473005, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: 1019282107, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: -1124439300, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: -485422230, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: 1205895273, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: -988114068, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: -1910539047, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
-  - {fileID: -386965690, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: -1610518244, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: 2083851382, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: 195281814, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: 1808655954, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: 1936810022, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: 339600447, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: 637173624, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: -382271854, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: 1689347412, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
+  - {fileID: 1230862227, guid: f8eb03b1ed022cd44876fe7f0369872b, type: 3}
   m_MinSpeed: 6
   m_MaxSpeed: 6
   m_AnimationStartTime: 0
