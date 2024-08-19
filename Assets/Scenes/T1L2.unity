@@ -334,7 +334,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 12, y: 8.21875, z: 0}
+  m_ChunkCullingBounds: {x: 15, y: 8.21875, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -365,16 +365,19 @@ Tilemap:
     second:
       serializedVersion: 2
       m_AnimatedSprites:
-      - {fileID: 1301346790, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: 1082985558, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: 1049901888, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: -1102618150, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: -1580963515, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: 1101095433, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: 440063275, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: -1408425945, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: -559855533, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      - {fileID: -2059970879, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 1636448355, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 2020871173, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 1950117360, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 1953999666, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: -1852850333, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: -14198738, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 843900872, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 2065199222, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 1782004894, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 1079420307, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 1840117427, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: -906166953, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+      - {fileID: 2001341765, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
       m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
@@ -383,7 +386,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: eaffa06b68f399f4b8918b4eba89b060, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: -2059970879, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
+    m_Data: {fileID: 2001341765, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
