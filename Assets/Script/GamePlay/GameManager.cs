@@ -115,8 +115,8 @@ public class GameManager : Singleton<GameManager>
 
     private void AwardBadge()
     {
-        int currentTheme = LevelManager.Instance.CurrentThemeIndex;
-        int currentLevel = LevelManager.Instance.CurrentLevelIndex;
+        int currentTheme = LevelManager.Instance.levelCards[LevelManager.Instance.CurrentLevelIndex].themeId;
+        int currentLevel = LevelManager.Instance.levelCards[LevelManager.Instance.CurrentLevelIndex].levelId;
         BadgeManager.Instance.AwardBadge(currentTheme, currentLevel);
     }
 

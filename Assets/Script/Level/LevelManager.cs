@@ -1,106 +1,112 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
-
-[Serializable]
-public class Level
-{
-    public string sceneName;
-}
-
-[Serializable]
-public class Theme
-{
-    public List<Level> levels;
-}
 
 public class LevelManager : Singleton<LevelManager>
 {
-    public List<Theme> themes;
+    public LevelCard[] levelCards;
 
     [SerializeField]
-    private int currentThemeIndex = 0;
+    private LevelSelector levelSelector;
+
     [SerializeField]
+    private LevelCardManager levelCardManager;
+
     private int currentLevelIndex = 0;
-
-    public int CurrentThemeIndex
-    {
-        get { return currentThemeIndex; }
-    }
 
     public int CurrentLevelIndex
     {
         get { return currentLevelIndex; }
+        set
+        {
+            if (IsValidLevel(value))
+            {
+                currentLevelIndex = value;
+                LoadCurrentLevel();
+            }
+        }
+    }
+
+    private void Start()
+    {
+        LoadCurrentLevel();
+        InitializeLevelSelector();
+    }
+
+    private void InitializeLevelSelector()
+    {
+        // Set up the LevelSelector with the current levels
+        levelSelector.themeId = levelCards[currentLevelIndex].themeId;
+        levelSelector.levelId = currentLevelIndex + 1;
     }
 
     public void LoadCurrentLevel()
     {
-        if (IsValidLevel(currentThemeIndex, currentLevelIndex))
+        if (IsValidLevel(currentLevelIndex))
         {
-            string sceneName = themes[currentThemeIndex].levels[currentLevelIndex].sceneName;
-            if (!string.IsNullOrEmpty(sceneName))
-            {
-                SceneManager.LoadScene(sceneName);
-            }
-            else
-            {
-                Debug.LogError($"Scene name is empty or null! ThemeIndex: {currentThemeIndex}, LevelIndex: {currentLevelIndex}");
-            }
+            string sceneName = GenerateSceneName(levelCards[currentLevelIndex]);
+            SceneManager.LoadScene(sceneName);
         }
         else
         {
-            Debug.LogError($"Level index out of bounds! ThemeIndex: {currentThemeIndex}, LevelIndex: {currentLevelIndex}");
+            Debug.LogError("Invalid level index: " + currentLevelIndex);
         }
     }
 
     public void LoadNextLevel()
     {
-        if (IsValidLevel(currentThemeIndex, currentLevelIndex + 1))
+        if (IsValidLevel(currentLevelIndex + 1))
         {
-            currentLevelIndex++;
-            LoadCurrentLevel();
-        }
-        else if (IsValidTheme(currentThemeIndex + 1))
-        {
-            if (BadgeManager.Instance.AreAllBadgesCollected(currentThemeIndex))
-            {
-                currentThemeIndex++;
-                currentLevelIndex = 0;
-                LoadCurrentLevel();
-            }
-            else
-            {
-                Debug.LogError("Cannot load next theme, all badges not collected.");
-            }
+            CurrentLevelIndex++;
         }
         else
         {
-            Debug.Log("No more levels to load!");
+            Debug.Log("No more levels to load, reached end of array.");
         }
     }
 
-
-    private bool IsValidLevel(int themeIndex, int levelIndex)
+    public void LoadPreviousLevel()
     {
-        return themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count;
-    }
-
-    private bool IsValidTheme(int themeIndex)
-    {
-        return themeIndex < themes.Count;
-    }
-
-    public void SetCurrentLevel(int themeIndex, int levelIndex)
-    {
-        if (IsValidLevel(themeIndex, levelIndex))
+        if (IsValidLevel(currentLevelIndex - 1))
         {
-            currentThemeIndex = themeIndex;
-            currentLevelIndex = levelIndex;
+            CurrentLevelIndex--;
         }
         else
         {
-            Debug.LogError("Invalid theme or level index provided.");
+            Debug.Log("Already at the first level.");
         }
+    }
+
+    public void SetCurrentLevel(int index)
+    {
+        if (IsValidLevel(index))
+        {
+            CurrentLevelIndex = index;
+        }
+        else
+        {
+            Debug.LogError("Invalid level index set: " + index);
+        }
+    }
+
+    private bool IsValidLevel(int index)
+    {
+        return index >= 0 && index < levelCards.Length;
+    }
+
+    private string GenerateSceneName(LevelCard levelCard)
+    {
+        return $"T{levelCard.themeId}L{levelCard.levelId}";
+    }
+
+    public void OnLevelSelected(int levelIndex)
+    {
+        SetCurrentLevel(levelIndex);
+    }
+
+    public void RefreshLevelCards()
+    {
+        // This method could be called whenever you need to update the display of level cards
+        levelCardManager.DisplayCardAndTime();
+        levelCardManager.AddStamps();
     }
 }
