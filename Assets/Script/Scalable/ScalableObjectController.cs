@@ -7,34 +7,32 @@ public class ScalableObjectController : MonoBehaviour
     [SerializeField]
     private GameObject correctTilemap; // The target Tilemap to identify success
 
-    private List<TilemapRenderer> tilemapRenderers = new List<TilemapRenderer>();
+    private List<GameObject> controllableChildren = new List<GameObject>();
     private Collider2D objectCollider;
     public bool isSelected = false;
-    private int currentTilemapIndex = 0; // Index to track the currently active TilemapRenderer
+    private int currentChildIndex = 0; // Index to track the currently active controllable child
     private bool isCorrectTilemapActive = false;
 
     private void Awake()
     {
         objectCollider = GetComponent<Collider2D>();
-        GetChildTilemapRenderers();
+        GetControllableChildren();
     }
 
-    private void GetChildTilemapRenderers()
+    private void GetControllableChildren()
     {
-        foreach (Transform child in transform)
+        // Assuming the specific children are the first three children of the GameObject
+        for (int i = 0; i < Mathf.Min(3, transform.childCount); i++)
         {
-            TilemapRenderer tmRenderer = child.GetComponent<TilemapRenderer>();
-            if (tmRenderer != null)
-            {
-                tilemapRenderers.Add(tmRenderer);
-                tmRenderer.enabled = false; // Start with all TilemapRenderers disabled
-            }
+            GameObject child = transform.GetChild(i).gameObject;
+            controllableChildren.Add(child);
+            SetTilemapRendererEnabled(child, false); // Initially disable all controllable children
         }
 
-        // Enable the first TilemapRenderer if any exist
-        if (tilemapRenderers.Count > 0)
+        // Enable the first child's TilemapRenderer and its background if available
+        if (controllableChildren.Count > 0)
         {
-            tilemapRenderers[0].enabled = true;
+            SetTilemapRendererEnabled(controllableChildren[0], true);
         }
     }
 
@@ -54,30 +52,30 @@ public class ScalableObjectController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                CycleTilemapRenderers(-1); // Cycle left
+                CycleChildren(-1); // Cycle left
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                CycleTilemapRenderers(1); // Cycle right
+                CycleChildren(1); // Cycle right
             }
         }
     }
 
-    private void CycleTilemapRenderers(int direction)
+    private void CycleChildren(int direction)
     {
-        if (tilemapRenderers.Count == 0) return;
+        if (controllableChildren.Count == 0) return;
 
-        // Disable the current TilemapRenderer
-        tilemapRenderers[currentTilemapIndex].enabled = false;
+        // Disable the current child's TilemapRenderer and its background
+        SetTilemapRendererEnabled(controllableChildren[currentChildIndex], false);
 
         // Adjust the index using modulo for wrapping
-        currentTilemapIndex = (currentTilemapIndex + direction + tilemapRenderers.Count) % tilemapRenderers.Count;
+        currentChildIndex = (currentChildIndex + direction + controllableChildren.Count) % controllableChildren.Count;
 
-        // Enable the new TilemapRenderer
-        tilemapRenderers[currentTilemapIndex].enabled = true;
+        // Enable the new child's TilemapRenderer and its background
+        SetTilemapRendererEnabled(controllableChildren[currentChildIndex], true);
 
-        // Check if the newly enabled TilemapRenderer is the correct one
-        if (tilemapRenderers[currentTilemapIndex].gameObject == correctTilemap)
+        // Check if the newly enabled child's TilemapRenderer is the correct one
+        if (controllableChildren[currentChildIndex] == correctTilemap)
         {
             if (!isCorrectTilemapActive)
             {
@@ -88,6 +86,25 @@ public class ScalableObjectController : MonoBehaviour
         else
         {
             isCorrectTilemapActive = false;
+        }
+    }
+
+    // Helper method to enable/disable the TilemapRenderer of a GameObject and its children
+    private void SetTilemapRendererEnabled(GameObject obj, bool enabled)
+    {
+        var renderer = obj.GetComponent<TilemapRenderer>();
+        if (renderer != null)
+        {
+            renderer.enabled = enabled;
+        }
+        // Also enable/disable the renderer for any child (assumed to be the background tilemap)
+        foreach (Transform child in obj.transform)
+        {
+            var childRenderer = child.GetComponent<TilemapRenderer>();
+            if (childRenderer != null)
+            {
+                childRenderer.enabled = enabled;
+            }
         }
     }
 
