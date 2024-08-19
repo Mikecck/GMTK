@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background_0
+      name: background_3-0
       rect:
         serializedVersion: 2
         x: 0
@@ -105,7 +105,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -118,7 +118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_1
+      name: background_3-1
       rect:
         serializedVersion: 2
         x: 496
@@ -126,7 +126,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_2
+      name: background_3-2
       rect:
         serializedVersion: 2
         x: 992
@@ -147,7 +147,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,7 +160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_3
+      name: background_3-3
       rect:
         serializedVersion: 2
         x: 1488
@@ -168,7 +168,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,7 +181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_4
+      name: background_3-4
       rect:
         serializedVersion: 2
         x: 1984
@@ -189,7 +189,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,7 +202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_5
+      name: background_3-5
       rect:
         serializedVersion: 2
         x: 2480
@@ -210,7 +210,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,7 +223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_6
+      name: background_3-6
       rect:
         serializedVersion: 2
         x: 2976
@@ -231,7 +231,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,7 +244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_7
+      name: background_3-7
       rect:
         serializedVersion: 2
         x: 3472
@@ -252,7 +252,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,7 +265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_8
+      name: background_3-8
       rect:
         serializedVersion: 2
         x: 3968
@@ -273,7 +273,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,7 +286,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_9
+      name: background_3-9
       rect:
         serializedVersion: 2
         x: 4464
@@ -294,7 +294,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -307,7 +307,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_10
+      name: background_3-10
       rect:
         serializedVersion: 2
         x: 4960
@@ -315,7 +315,7 @@ TextureImporter:
         width: 496
         height: 279
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -338,17 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      background_0: -1030510275
-      background_1: -1024745045
-      background_10: 1263710615
-      background_2: 1104454573
-      background_3: 1705408073
-      background_4: 1400655210
-      background_5: -1339768348
-      background_6: -705432928
-      background_7: -1631716106
-      background_8: -811977183
-      background_9: 1672309818
+      background_3-0: -1030510275
+      background_3-1: -1024745045
+      background_3-10: 1263710615
+      background_3-2: 1104454573
+      background_3-3: 1705408073
+      background_3-4: 1400655210
+      background_3-5: -1339768348
+      background_3-6: -705432928
+      background_3-7: -1631716106
+      background_3-8: -811977183
+      background_3-9: 1672309818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
