@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: T2L4-Seaweed1
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -277003865, guid: 012668f13ab692f4c941fa947f58a7a9, type: 3}
+  - {fileID: -797259350, guid: 012668f13ab692f4c941fa947f58a7a9, type: 3}
+  - {fileID: 356906204, guid: 012668f13ab692f4c941fa947f58a7a9, type: 3}
+  - {fileID: -69721007, guid: 012668f13ab692f4c941fa947f58a7a9, type: 3}
+  - {fileID: -1215174308, guid: 012668f13ab692f4c941fa947f58a7a9, type: 3}
+  - {fileID: -1928224973, guid: 012668f13ab692f4c941fa947f58a7a9, type: 3}
+  - {fileID: -1881808180, guid: 012668f13ab692f4c941fa947f58a7a9, type: 3}
+  - {fileID: 768897964, guid: 012668f13ab692f4c941fa947f58a7a9, type: 3}
+  m_MinSpeed: 6
+  m_MaxSpeed: 6
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0

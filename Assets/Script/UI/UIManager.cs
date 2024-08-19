@@ -33,6 +33,13 @@ public class UIManager: MonoBehaviour
 
 	private void Start()
 	{
+		if (isMainMenu)
+		{
+			mainMenu.SetActive(true);
+			settingsPanel.SetActive(false);
+			themesPanel.SetActive(false);
+		}
+		
 		if (bgmSlider && sfxSlider)
 		{
 			ChangeBGMValueText();
@@ -80,22 +87,6 @@ public class UIManager: MonoBehaviour
 			themesPanel.SetActive(false);
 			mainMenu.SetActive(true);
 		}
-	}
-
-	public void Theme1Selected()
-	{
-		ToggleThemesPanel();
-		SceneManager.LoadScene("T1L1");
-	}
-	public void Theme2Selected()
-	{
-		ToggleThemesPanel();
-		SceneManager.LoadScene("T2L1");
-	}
-	public void Theme3Selected()
-	{
-		ToggleThemesPanel();
-		SceneManager.LoadScene("T3L1");
 	}
 
 	public void ToggleInGameMenu()
@@ -166,7 +157,7 @@ public class UIManager: MonoBehaviour
 	{
 		ToggleLevelSelection();
 	}
-
+	/*
 	public void ZoomInCam()
     {
 		cam.GetComponent<Animator>().SetBool("zoomIn", true);
@@ -176,7 +167,7 @@ public class UIManager: MonoBehaviour
 	{
 		cam.GetComponent<Animator>().SetBool("zoomIn", false);
 	}
-
+	*/
     public void ChangeBGMValueText()
     {
         bgmValueText.text = bgmSlider.value.ToString();

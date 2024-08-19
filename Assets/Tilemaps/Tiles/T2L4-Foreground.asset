@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: T2L4-Foreground
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -901189766, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
-  - {fileID: -1490066780, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
-  - {fileID: 1823158335, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
-  - {fileID: 94193048, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
-  - {fileID: 1603328896, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
-  - {fileID: -1149191088, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
-  - {fileID: -1582125553, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
-  - {fileID: 2044143536, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
+  - {fileID: 1269647445, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
+  - {fileID: 391276824, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
+  - {fileID: 745581193, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
+  - {fileID: 766791389, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
+  - {fileID: -1237186707, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
+  - {fileID: -1140657689, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
+  - {fileID: -71805993, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
+  - {fileID: -1005500349, guid: c0c309528ad20654d84bcbca4d0ef468, type: 3}
   m_MinSpeed: 6
   m_MaxSpeed: 6
   m_AnimationStartTime: 0
