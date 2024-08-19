@@ -21,20 +21,22 @@ public class ScalableObjectController : MonoBehaviour
 
     private void GetControllableChildren()
     {
-        // Assuming the specific children are the first three children of the GameObject
-        for (int i = 0; i < Mathf.Min(3, transform.childCount); i++)
-        {
-            GameObject child = transform.GetChild(i).gameObject;
-            controllableChildren.Add(child);
-            SetTilemapRendererEnabled(child, false); // Initially disable all controllable children
-        }
+        controllableChildren.Clear();
 
-        // Enable the first child's TilemapRenderer and its background if available
+        foreach (Transform child in transform)
+        {
+            if (child.GetComponent<TilemapRenderer>() != null)
+            {
+                controllableChildren.Add(child.gameObject);
+                SetTilemapRendererEnabled(child.gameObject, false);
+            }
+        }
         if (controllableChildren.Count > 0)
         {
             SetTilemapRendererEnabled(controllableChildren[0], true);
         }
     }
+
 
     private void Update()
     {

@@ -698,6 +698,10 @@ PrefabInstance:
       propertyPath: scalableTilemaps.Array.data[0]
       value: 
       objectReference: {fileID: 2113591360}
+    - target: {fileID: 3749001622851346438, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
+      propertyPath: scalableTilemaps.Array.data[1]
+      value: 
+      objectReference: {fileID: 2113591360}
     - target: {fileID: 5837516516999349654, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.10649285
@@ -771,13 +775,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 617816381}
     m_Modifications:
+    - target: {fileID: 150355131429242900, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 353562119185405309, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 617593964139684123, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
       propertyPath: m_Name
       value: Seed
+      objectReference: {fileID: 0}
+    - target: {fileID: 617593964139684123, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226096665430515439, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1953744042824212187, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
       propertyPath: m_LocalPosition.x
@@ -821,17 +837,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232681416033210515, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3547748473203826113, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3918749275693070263, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4394754375363519138, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467047596618608174, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578413835606436678, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247544405100208347, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593348259699261282, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6676911075290630680, guid: 53f1f5ec4a1111a4bab5fc03b3fb9638, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
