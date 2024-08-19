@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalableObjects: []
-  timeLimit: 5
+  timeLimit: 20
