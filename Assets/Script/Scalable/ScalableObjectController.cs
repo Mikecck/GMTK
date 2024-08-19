@@ -1,37 +1,40 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ScalableObjectController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject correctSprite; // This is the target sprite to identify success
+    private GameObject correctTilemap; // The target Tilemap to identify success
 
-    private List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
+    private List<TilemapRenderer> tilemapRenderers = new List<TilemapRenderer>();
     private Collider2D objectCollider;
     public bool isSelected = false;
-    private int currentSpriteIndex = 0; // Index to track the currently active sprite
-    private bool isCorrectSpriteSelected = false;
+    private int currentTilemapIndex = 0; // Index to track the currently active TilemapRenderer
+    private bool isCorrectTilemapActive = false;
+
     private void Awake()
     {
         objectCollider = GetComponent<Collider2D>();
-        GetChildSpriteRenderers();
+        GetChildTilemapRenderers();
     }
 
-    private void GetChildSpriteRenderers()
+    private void GetChildTilemapRenderers()
     {
         foreach (Transform child in transform)
         {
-            SpriteRenderer sr = child.GetComponent<SpriteRenderer>();
-            if (sr != null)
+            TilemapRenderer tmRenderer = child.GetComponent<TilemapRenderer>();
+            if (tmRenderer != null)
             {
-                spriteRenderers.Add(sr);
-                sr.enabled = false;
+                tilemapRenderers.Add(tmRenderer);
+                tmRenderer.enabled = false; // Start with all TilemapRenderers disabled
             }
         }
 
-        if (spriteRenderers.Count > 0)
+        // Enable the first TilemapRenderer if any exist
+        if (tilemapRenderers.Count > 0)
         {
-            spriteRenderers[0].enabled = true;
+            tilemapRenderers[0].enabled = true;
         }
     }
 
@@ -51,43 +54,44 @@ public class ScalableObjectController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                CycleSprites(-1); // Cycle left
+                CycleTilemapRenderers(-1); // Cycle left
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                CycleSprites(1); // Cycle right
+                CycleTilemapRenderers(1); // Cycle right
             }
         }
     }
 
-    private void CycleSprites(int direction)
+    private void CycleTilemapRenderers(int direction)
     {
-        if (spriteRenderers.Count == 0) return;
+        if (tilemapRenderers.Count == 0) return;
 
-        // Disable the current sprite
-        spriteRenderers[currentSpriteIndex].enabled = false;
+        // Disable the current TilemapRenderer
+        tilemapRenderers[currentTilemapIndex].enabled = false;
 
         // Adjust the index using modulo for wrapping
-        currentSpriteIndex = (currentSpriteIndex + direction + spriteRenderers.Count) % spriteRenderers.Count;
+        currentTilemapIndex = (currentTilemapIndex + direction + tilemapRenderers.Count) % tilemapRenderers.Count;
 
-        // Enable the new sprite
-        spriteRenderers[currentSpriteIndex].enabled = true;
+        // Enable the new TilemapRenderer
+        tilemapRenderers[currentTilemapIndex].enabled = true;
 
-        if (spriteRenderers[currentSpriteIndex].gameObject == correctSprite)
+        // Check if the newly enabled TilemapRenderer is the correct one
+        if (tilemapRenderers[currentTilemapIndex].gameObject == correctTilemap)
         {
-            if (!isCorrectSpriteSelected)
+            if (!isCorrectTilemapActive)
             {
-                isCorrectSpriteSelected = true;
-                GameManager.Instance.NotifySpriteCorrect(this);
+                isCorrectTilemapActive = true;
+                GameManager.Instance.NotifyTilemapCorrect(this); // Notify that the correct tilemap is selected
             }
         }
         else
         {
-            isCorrectSpriteSelected = false;
+            isCorrectTilemapActive = false;
         }
     }
 
-        private void CheckForSelection()
+    private void CheckForSelection()
     {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
@@ -104,9 +108,9 @@ public class ScalableObjectController : MonoBehaviour
         }
     }
 
-    public bool IsCorrectSpriteActive()
+    public bool IsCorrectTilemapActive()
     {
-        return isCorrectSpriteSelected;
+        return isCorrectTilemapActive;
     }
 
     public void SetSelected(bool selected)

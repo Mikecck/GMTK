@@ -6,7 +6,7 @@ public class GameManager : Singleton<GameManager>
 {
     private ScalableObjectController currentSelectedObject;
     [SerializeField]
-    private List<ScalableObjectController> scalableObjects;
+    private List<ScalableObjectController> scalableTilemaps; // List to hold tilemap controllers
 
     [SerializeField]
     private float timeLimit = 15f;  // Time limit in seconds for the current level
@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        FindAndAssignScalableObjects();
+        FindAndAssignScalableTilemaps();
         StartLevelTimer();
     }
 
@@ -58,9 +58,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    void FindAndAssignScalableObjects()
+    void FindAndAssignScalableTilemaps()
     {
-        scalableObjects = new List<ScalableObjectController>(FindObjectsOfType<ScalableObjectController>());
+        scalableTilemaps = new List<ScalableObjectController>(FindObjectsOfType<ScalableObjectController>());
     }
 
     public void SelectObject(ScalableObjectController obj)
@@ -82,34 +82,34 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void NotifySpriteCorrect(ScalableObjectController obj)
+    public void NotifyTilemapCorrect(ScalableObjectController obj)
     {
-        Debug.Log("Correct sprite enabled: " + obj.name);
+        Debug.Log("Correct tilemap enabled: " + obj.name);
         CheckForLevelCompletion();
     }
 
     private void CheckForLevelCompletion()
     {
         bool allCorrect = true;
-        foreach (var scalableObject in scalableObjects)
+        foreach (var tilemapController in scalableTilemaps)
         {
-            if (!scalableObject.IsCorrectSpriteActive())
+            if (!tilemapController.IsCorrectTilemapActive())
             {
                 allCorrect = false;
-                break;  // Exit early if any object is not correct
+                break;  // Exit early if any tilemap is not correct
             }
         }
 
         if (allCorrect)
         {
             levelComplete = true;
-            Debug.Log("All correct sprites are active within time, awarding badge and proceeding to the next level.");
+            Debug.Log("All correct tilemaps are active within time, awarding badge and proceeding to the next level.");
             AwardBadge();
             LevelManager.Instance.LoadNextLevel();  // Load the next level
         }
         else
         {
-            Debug.Log("Not all correct sprites are active yet.");
+            Debug.Log("Not all correct tilemaps are active yet.");
         }
     }
 
