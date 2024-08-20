@@ -29,6 +29,7 @@ public class UIManager: MonoBehaviour
 	[SerializeField] private GameObject levelSelection;
 	[SerializeField] private LevelSelector levelSelector;
 	[SerializeField] private LevelCardManager levelCardManager;
+	[SerializeField] GameObject shootEffect;
 
 	private void Start()
 	{
@@ -176,10 +177,12 @@ public class UIManager: MonoBehaviour
 		sfxValueText.text = sfxSlider.value.ToString();
 	}
 
-	public void LoadNextLevel()
+	public void PlayShootEffect()
 	{
-		LevelManager.Instance.LoadNextLevel();
+		shootEffect.SetActive(true);
+		shootEffect.GetComponent<Animator>().SetTrigger("shoot");
 	}
+
 	public void QuitGame()
 	{
 #if UNITY_EDITOR
