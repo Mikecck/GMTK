@@ -267,12 +267,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 590486678790626772, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 590486678790626772, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1306957625}
     - target: {fileID: 590486678790626772, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToggleSettingsPanelInGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1855812195039264718, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1855812195039264718, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -366,6 +374,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1315589910}
+    - target: {fileID: 7327266755521920861, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1306957625}
+    - target: {fileID: 7327266755521920861, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleSettingsPanelInGame
+      objectReference: {fileID: 0}
     - target: {fileID: 7717233784842192518, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
@@ -829,6 +845,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &908828458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 217303527891300983, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+  m_PrefabInstance: {fileID: 908828454}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &973683054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1099,10 @@ PrefabInstance:
       propertyPath: levelSelection
       value: 
       objectReference: {fileID: 24370737}
+    - target: {fileID: 7506143847872135701, guid: 6141c4e3954ca924b90db3af20d3c865, type: 3}
+      propertyPath: elapsedTimeText
+      value: 
+      objectReference: {fileID: 908828458}
     - target: {fileID: 7506143847872135701, guid: 6141c4e3954ca924b90db3af20d3c865, type: 3}
       propertyPath: levelCardManager
       value: 
