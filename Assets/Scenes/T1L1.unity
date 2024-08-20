@@ -2791,9 +2791,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7235998527145619996, guid: 35b4cadce81dd054cb74db3ce8b14414, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235998527145619996, guid: 35b4cadce81dd054cb74db3ce8b14414, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 844526651}
+    - target: {fileID: 7235998527145619996, guid: 35b4cadce81dd054cb74db3ce8b14414, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 844526651}
+    - target: {fileID: 7235998527145619996, guid: 35b4cadce81dd054cb74db3ce8b14414, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleLevelSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235998527145619996, guid: 35b4cadce81dd054cb74db3ce8b14414, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
