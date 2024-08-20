@@ -1004,9 +1004,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5509584333138394684, guid: 553e1376ec807c54e992ed07bc68fe30, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6279665884334575987, guid: 553e1376ec807c54e992ed07bc68fe30, type: 3}
       propertyPath: m_Name
       value: WinOrLose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279665884334575987, guid: 553e1376ec807c54e992ed07bc68fe30, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6974992069701775905, guid: 553e1376ec807c54e992ed07bc68fe30, type: 3}
       propertyPath: m_Pivot.x
@@ -1086,6 +1094,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6974992069701775905, guid: 553e1376ec807c54e992ed07bc68fe30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304627842565003571, guid: 553e1376ec807c54e992ed07bc68fe30, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7509560915871365345, guid: 553e1376ec807c54e992ed07bc68fe30, type: 3}
@@ -1716,7 +1728,7 @@ Tilemap:
       - {fileID: -811977183, guid: 4df6c0e8ace798e429beb58efb81dccf, type: 3}
       - {fileID: 1672309818, guid: 4df6c0e8ace798e429beb58efb81dccf, type: 3}
       - {fileID: 1263710615, guid: 4df6c0e8ace798e429beb58efb81dccf, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
