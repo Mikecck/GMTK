@@ -4,64 +4,87 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    public List<LevelCard> levelCards;
-    public int CurrentThemeIndex { get; private set; } = 0;
-    public int CurrentLevelIndex { get; private set; } = 0;
-
-    public void LoadLevel(int themeIndex, int levelIndex)
+    [System.Serializable]
+    public class Theme
     {
-        int adjustedThemeIndex = themeIndex + 1;
-        int adjustedLevelIndex = levelIndex + 1;
+        public string themeName;
+        public List<string> levels;
+    }
 
-        string sceneName = $"T{adjustedThemeIndex}L{adjustedLevelIndex}";
+    [SerializeField]
+    private List<Theme> themes;
 
-        LevelCard levelCard = levelCards.Find(card => card.themeId == adjustedThemeIndex && card.levelId == adjustedLevelIndex);
+    [SerializeField] private int currentThemeIndex = 0;
+    [SerializeField] private int currentLevelIndex = 0;
 
-        if (levelCard != null)
+    private bool isLevelLoading = false;
+
+    private void Start()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        LoadCurrentLevel();
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        isLevelLoading = false;
+    }
+
+    public void LoadCurrentLevel()
+    {
+        if (isLevelLoading) return;
+
+        isLevelLoading = true;
+
+        if (currentThemeIndex < themes.Count && currentLevelIndex < themes[currentThemeIndex].levels.Count)
         {
-            CurrentThemeIndex = themeIndex;
-            CurrentLevelIndex = levelIndex;
-
-            if (Application.CanStreamedLevelBeLoaded(sceneName))
-            {
-                SceneManager.LoadScene(sceneName);
-            }
-            else
-            {
-                Debug.LogError($"Scene {sceneName} could not be found or loaded.");
-            }
+            string levelToLoad = themes[currentThemeIndex].levels[currentLevelIndex];
+            SceneManager.LoadScene(levelToLoad);
         }
         else
         {
-            Debug.LogError("Level card not found");
+            Debug.LogError("Invalid theme or level index. Cannot load level.");
+            isLevelLoading = false;
         }
     }
 
-
-    public void LoadNextLevel()
+    public void LoadSpecificLevel(int themeIndex, int levelIndex)
     {
-        int nextLevelIndex = CurrentLevelIndex + 1;
+        if (isLevelLoading) return;
 
-        if (nextLevelIndex < 5)
+        if (themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count)
         {
-            LoadLevel(CurrentThemeIndex, nextLevelIndex);
+            currentThemeIndex = themeIndex;
+            currentLevelIndex = levelIndex;
+            LoadCurrentLevel();
         }
         else
         {
-            int nextThemeIndex = CurrentThemeIndex + 1;
-            if (nextThemeIndex < 2)
-            {
-                LoadLevel(nextThemeIndex, 0);
-            }
-            else
-            {
-                Debug.Log("All levels completed!");
-            }
+            Debug.LogError("Invalid theme or level index. Cannot load specific level.");
         }
     }
 
     public void ReloadCurrentLevel()
     {
-        LoadLevel(CurrentThemeIndex, CurrentLevelIndex);
+        if (!isLevelLoading)
+        {
+            LoadCurrentLevel();
+        }
+    }
+
+
+    public int GetCurrentThemeIndex()
+    {
+        return currentThemeIndex;
+    }
+
+    public int GetCurrentLevelIndex()
+    {
+        return currentLevelIndex;
     }
 }

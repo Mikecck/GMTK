@@ -48,12 +48,12 @@ public class GameManager : Singleton<GameManager>
 
         if (blockingObject == null)
         {
-            blockingObject = GameObject.Find("Button_Block").GetComponent<Button>();
+            blockingObject = GameObject.Find("Shoot_Block").GetComponent<Button>();
         }
 
         if (levelButton == null)
         {
-            levelButton = GameObject.Find("Button_Checkout").GetComponent<Button>();
+            levelButton = GameObject.Find("Shoot").GetComponent<Button>();
         }
 
     }
@@ -124,7 +124,6 @@ public class GameManager : Singleton<GameManager>
             levelComplete = true;
             Debug.Log("All correct tilemaps are active within time, awarding badge.");
             DisableBlockingObject();
-            AwardBadge();
         }
 
     }
@@ -136,13 +135,6 @@ public class GameManager : Singleton<GameManager>
             blockingObject.gameObject.SetActive(false); // Disable the blocking object to make the button clickable
             levelButton.interactable = true; // Ensure the button is interactable
         }
-    }
-
-    private void AwardBadge()
-    {
-        int currentTheme = LevelManager.Instance.levelCards[LevelManager.Instance.CurrentLevelIndex].themeId;
-        int currentLevel = LevelManager.Instance.levelCards[LevelManager.Instance.CurrentLevelIndex].levelId;
-        BadgeManager.Instance.AwardBadge(currentTheme, currentLevel);
     }
 
     private void FailLevel()
