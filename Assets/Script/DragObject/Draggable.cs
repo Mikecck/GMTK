@@ -17,11 +17,17 @@ public class Draggable : MonoBehaviour
 
     void OnMouseDown()
     {
-        isDragging = true;
-        offset = transform.position - GetMouseWorldPosition();
+        if (!isDragging)
+        {
+            StartDragging();
+        }
+        else
+        {
+            StopDragging();
+        }
     }
 
-    void OnMouseDrag()
+    void Update()
     {
         if (isDragging)
         {
@@ -29,7 +35,13 @@ public class Draggable : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    void StartDragging()
+    {
+        isDragging = true;
+        offset = transform.position - GetMouseWorldPosition();
+    }
+
+    void StopDragging()
     {
         isDragging = false;
         Transform snapTarget = GetSnapTarget();
