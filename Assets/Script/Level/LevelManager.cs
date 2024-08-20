@@ -1,112 +1,67 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    public LevelCard[] levelCards;
+    public List<LevelCard> levelCards;
+    public int CurrentThemeIndex { get; private set; } = 0;
+    public int CurrentLevelIndex { get; private set; } = 0;
 
-    [SerializeField]
-    private LevelSelector levelSelector;
-
-    [SerializeField]
-    private LevelCardManager levelCardManager;
-
-    private int currentLevelIndex = 0;
-
-    public int CurrentLevelIndex
+    public void LoadLevel(int themeIndex, int levelIndex)
     {
-        get { return currentLevelIndex; }
-        set
+        int adjustedThemeIndex = themeIndex + 1;
+        int adjustedLevelIndex = levelIndex + 1;
+
+        string sceneName = $"T{adjustedThemeIndex}L{adjustedLevelIndex}";
+
+        LevelCard levelCard = levelCards.Find(card => card.themeId == adjustedThemeIndex && card.levelId == adjustedLevelIndex);
+
+        if (levelCard != null)
         {
-            if (IsValidLevel(value))
+            CurrentThemeIndex = themeIndex;
+            CurrentLevelIndex = levelIndex;
+
+            if (Application.CanStreamedLevelBeLoaded(sceneName))
             {
-                currentLevelIndex = value;
-                LoadCurrentLevel();
+                SceneManager.LoadScene(sceneName);
+            }
+            else
+            {
+                Debug.LogError($"Scene {sceneName} could not be found or loaded.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Level card not found");
+        }
+    }
+
+
+    public void LoadNextLevel()
+    {
+        int nextLevelIndex = CurrentLevelIndex + 1;
+
+        if (nextLevelIndex < 5)
+        {
+            LoadLevel(CurrentThemeIndex, nextLevelIndex);
+        }
+        else
+        {
+            int nextThemeIndex = CurrentThemeIndex + 1;
+            if (nextThemeIndex < 2)
+            {
+                LoadLevel(nextThemeIndex, 0);
+            }
+            else
+            {
+                Debug.Log("All levels completed!");
             }
         }
     }
 
-    private void Start()
+    public void ReloadCurrentLevel()
     {
-        LoadCurrentLevel();
-        InitializeLevelSelector();
-    }
-
-    private void InitializeLevelSelector()
-    {
-        // Set up the LevelSelector with the current levels
-        levelSelector.themeId = levelCards[currentLevelIndex].themeId;
-        levelSelector.levelId = currentLevelIndex + 1;
-    }
-
-    public void LoadCurrentLevel()
-    {
-        if (IsValidLevel(currentLevelIndex))
-        {
-            string sceneName = GenerateSceneName(levelCards[currentLevelIndex]);
-            SceneManager.LoadScene(sceneName);
-        }
-        else
-        {
-            Debug.LogError("Invalid level index: " + currentLevelIndex);
-        }
-    }
-
-    public void LoadNextLevel()
-    {
-        if (IsValidLevel(currentLevelIndex + 1))
-        {
-            CurrentLevelIndex++;
-        }
-        else
-        {
-            Debug.Log("No more levels to load, reached end of array.");
-        }
-    }
-
-    public void LoadPreviousLevel()
-    {
-        if (IsValidLevel(currentLevelIndex - 1))
-        {
-            CurrentLevelIndex--;
-        }
-        else
-        {
-            Debug.Log("Already at the first level.");
-        }
-    }
-
-    public void SetCurrentLevel(int index)
-    {
-        if (IsValidLevel(index))
-        {
-            CurrentLevelIndex = index;
-        }
-        else
-        {
-            Debug.LogError("Invalid level index set: " + index);
-        }
-    }
-
-    private bool IsValidLevel(int index)
-    {
-        return index >= 0 && index < levelCards.Length;
-    }
-
-    private string GenerateSceneName(LevelCard levelCard)
-    {
-        return $"T{levelCard.themeId}L{levelCard.levelId}";
-    }
-
-    public void OnLevelSelected(int levelIndex)
-    {
-        SetCurrentLevel(levelIndex);
-    }
-
-    public void RefreshLevelCards()
-    {
-        // This method could be called whenever you need to update the display of level cards
-        levelCardManager.DisplayCardAndTime();
-        levelCardManager.AddStamps();
+        LoadLevel(CurrentThemeIndex, CurrentLevelIndex);
     }
 }
