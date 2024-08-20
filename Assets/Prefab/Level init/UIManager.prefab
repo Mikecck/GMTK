@@ -49,16 +49,16 @@ MonoBehaviour:
   mainMenu: {fileID: 0}
   smallIcons: []
   textIcons: []
-  settingsPanel: {fileID: 0}
-  themesPanel: {fileID: 0}
+  settingsPanel: {fileID: 7717233784842192518, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
+  themesPanel: {fileID: 6886091376642461799, guid: af14865d596addd47b574b1d7555529c, type: 3}
   bgmSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
   isHud: 1
   levelId: 1
   maxTime: 15
   elapsedTimeText: {fileID: 0}
-  inGameMenu: {fileID: 0}
-  levelSelection: {fileID: 0}
+  inGameMenu: {fileID: 5711996207947991608, guid: 0de65162bb039cb4f87d9f08615b835b, type: 3}
+  levelSelection: {fileID: 1379794561929911287, guid: 35b4cadce81dd054cb74db3ce8b14414, type: 3}
   levelSelector: {fileID: 0}
   levelCardManager: {fileID: 0}
   shootEffect: {fileID: 0}
