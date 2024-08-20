@@ -11,12 +11,12 @@ public class UIManager: MonoBehaviour
 	[SerializeField] private bool isMainMenu;
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject settingsPanel;
+	[SerializeField] private GameObject[] smallIcons;
+	[SerializeField] private GameObject[] textIcons;
+	[SerializeField] private GameObject settingsPanel;
 	[SerializeField] private GameObject themesPanel;
 	[SerializeField] private Slider bgmSlider;
-    [SerializeField] private TextMeshProUGUI bgmValueText;
     [SerializeField] private Slider sfxSlider;
-	[SerializeField] private TextMeshProUGUI sfxValueText;
 
 	[Header("For Game Scenes")]
 	[SerializeField] private bool isHud;
@@ -36,14 +36,9 @@ public class UIManager: MonoBehaviour
 		if (isMainMenu)
 		{
 			mainMenu.SetActive(true);
+			ResetMainMenuIcons();
 			settingsPanel.SetActive(false);
 			themesPanel.SetActive(false);
-		}
-		
-		if (bgmSlider && sfxSlider)
-		{
-			ChangeBGMValueText();
-			ChangeSFXValueText();
 		}
         
 	}
@@ -72,6 +67,7 @@ public class UIManager: MonoBehaviour
         {
 			settingsPanel.SetActive(false);
 			mainMenu.SetActive(true);
+			ResetMainMenuIcons();
 			//ZoomOutCam();
 		}
     }
@@ -86,6 +82,7 @@ public class UIManager: MonoBehaviour
 		{
 			themesPanel.SetActive(false);
 			mainMenu.SetActive(true);
+			ResetMainMenuIcons();
 		}
 	}
 
@@ -168,15 +165,23 @@ public class UIManager: MonoBehaviour
 		cam.GetComponent<Animator>().SetBool("zoomIn", false);
 	}
 	*/
-    public void ChangeBGMValueText()
-    {
-        bgmValueText.text = bgmSlider.value.ToString();
-    }
-	public void ChangeSFXValueText()
+	public void ChangeBGMVolume()
 	{
-		sfxValueText.text = sfxSlider.value.ToString();
+		float volume = bgmSlider.value;
+	}
+	public void ChangeSFXVolume()
+	{
+		float volume = sfxSlider.value;
 	}
 
+	public void ResetMainMenuIcons()
+	{
+		for (int i = 0; i < smallIcons.Length; i++)
+		{
+			textIcons[i].SetActive(false);
+			smallIcons[i].SetActive(true);
+		}
+	}
 	public void PlayShootEffect()
 	{
 		shootEffect.SetActive(true);
