@@ -48,12 +48,12 @@ public class GameManager : Singleton<GameManager>
 
         if (blockingObject == null)
         {
-            blockingObject = GameObject.Find("Button_Block").GetComponent<Button>();
+            blockingObject = GameObject.Find("Shoot_Block").GetComponent<Button>();
         }
 
         if (levelButton == null)
         {
-            levelButton = GameObject.Find("Button_Checkout").GetComponent<Button>();
+            levelButton = GameObject.Find("Shoot").GetComponent<Button>();
         }
 
     }

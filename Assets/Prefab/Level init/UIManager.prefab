@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &889241372462125893
+--- !u!1 &804502837820262511
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,56 +8,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1109349598786755145}
-  - component: {fileID: 3046751418382559218}
+  - component: {fileID: 7132915855209523693}
+  - component: {fileID: 7506143847872135701}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1109349598786755145
+--- !u!4 &7132915855209523693
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889241372462125893}
+  m_GameObject: {fileID: 804502837820262511}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.10649285, y: 0.6499645, z: 0.08600213}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3046751418382559218
+--- !u!114 &7506143847872135701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889241372462125893}
+  m_GameObject: {fileID: 804502837820262511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a14ad4c6b65bb494c8ab387619e3a939, type: 3}
+  m_Script: {fileID: 11500000, guid: 119dad598982da444a874edf9cce68be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  themes:
-  - themeName: Theme1
-    levels:
-    - T1L1
-    - T1L2
-    - T1L3
-    - T1L4
-    - T1L5
-  - themeName: Theme1
-    levels:
-    - T2L1
-    - T2L2
-    - T2L3
-    - T2L4
-    - T2L5
-  currentThemeIndex: 0
-  currentLevelIndex: 0
+  isMainMenu: 0
+  cam: {fileID: 0}
+  mainMenu: {fileID: 0}
+  smallIcons: []
+  textIcons: []
+  settingsPanel: {fileID: 0}
+  themesPanel: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  isHud: 1
+  levelId: 1
+  maxTime: 15
+  elapsedTimeText: {fileID: 0}
+  inGameMenu: {fileID: 0}
+  levelSelection: {fileID: 0}
+  levelSelector: {fileID: 0}
+  levelCardManager: {fileID: 0}
+  shootEffect: {fileID: 0}
+  win: {fileID: 0}
+  lose: {fileID: 0}
