@@ -24,7 +24,8 @@ public class GameManager : Singleton<GameManager>
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        StartLevelTimer();
+        StartLevelTimer();        
+        
     }
 
     void OnDisable()
@@ -54,6 +55,7 @@ public class GameManager : Singleton<GameManager>
         {
             levelButton = GameObject.Find("Button_Checkout").GetComponent<Button>();
         }
+
     }
 
     void StartLevelTimer()
@@ -145,8 +147,16 @@ public class GameManager : Singleton<GameManager>
 
     private void FailLevel()
     {
-        levelComplete = true;
+        //levelComplete = true;
         levelButton.interactable = true;
         DisableBlockingObject();
     }
+
+    // Level Complete Helper
+    public bool LevelComplete
+    {
+        get { return levelComplete; }
+        set { levelComplete = value; }
+    }
+
 }
