@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c7ce894382c064198c48e8943da7aa, type: 3}
   m_Name: Theme1
   m_EditorClassIdentifier: 
+  themeId: 1
   image: {fileID: -957382741, guid: 0c98e450919021f478124edba4e3c9a6, type: 3}
-  isVisited: 0
-  isFinished: 0
-  timeUsed: 0
+  isVisited: 1
+  isFinished: 1
+  timeUsed: 30

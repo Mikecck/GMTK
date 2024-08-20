@@ -5,10 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Theme Card", menuName = "Theme Card")]
 public class ThemeCard : ScriptableObject
 {
+	public int themeId;
 	public Sprite image;
 	// isVisited ? show image & enable animator : show blank image & disable animator
-	[HideInInspector] public bool isVisited;
+	public bool isVisited;
 	// isFinished ? show timeUsed : show --:--
-	[HideInInspector] public bool isFinished;
-	[HideInInspector] public int timeUsed;
+	public bool isFinished;
+	public int timeUsed;
 }

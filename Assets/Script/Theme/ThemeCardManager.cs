@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class ThemeCardManager : MonoBehaviour
 {
-	public LevelCard[] cards;
+	public ThemeCard[] cards;
 	[SerializeField] private Sprite unknownImage;
-	[SerializeField] private Image[] images;
+	[SerializeField] private SpriteRenderer[] images;
 	[SerializeField] private TextMeshProUGUI[] timeTexts;
 
 	private void OnEnable()
@@ -30,7 +30,7 @@ public class ThemeCardManager : MonoBehaviour
 				if (card.isFinished)
 					timeTexts[i].text = string.Format("{0:0}:{1:00}", 0, card.timeUsed);
 				else
-					timeTexts[i].text = "--:==";
+					timeTexts[i].text = "--:--";
 			}
 			else
 			{

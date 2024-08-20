@@ -5,7 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class ThemeSelector : MonoBehaviour
 {
+	public GameObject[] themes;
+	public ThemeCardManager themeCardManager;
+	public void PlayTargetThemeAnimation(int themeId)
+	{
+		if (themeCardManager.cards[themeId - 1].isVisited)
+		{
+			themes[themeId - 1].GetComponent<Animator>().SetBool("play", true);
+		}
+	}
 
+	public void ExitAllThemeAnimation()
+	{
+		for (int i = 0; i < themes.Length; i++)
+		{
+			Animator anim = themes[i].GetComponent<Animator>();
+			anim.SetBool("play", false);
+			anim.Rebind();
+			anim.Update(0f);
+		}
+	}
 
 	public void Theme1Selected()
 	{
@@ -13,7 +32,8 @@ public class ThemeSelector : MonoBehaviour
 	}
 	public void Theme2Selected()
 	{
-		SceneManager.LoadScene("T2L1");
+		if (themeCardManager.cards[1].isVisited)
+			SceneManager.LoadScene("T2L1");
 	}
 
 }

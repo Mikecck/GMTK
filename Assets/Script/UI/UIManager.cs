@@ -28,7 +28,7 @@ public class UIManager: MonoBehaviour
 	[SerializeField] private GameObject inGameMenu;
 	[SerializeField] private GameObject levelSelection;
 	[SerializeField] private LevelSelector levelSelector;
-	[SerializeField] private LevelCardManager cardManager;
+	[SerializeField] private LevelCardManager levelCardManager;
 
 
 	private void Start()
@@ -111,8 +111,8 @@ public class UIManager: MonoBehaviour
 
 	private void UpdateLevelCard()
 	{
-		cardManager.cards[levelId - 1].isVisited = true;
-		cardManager.cards[levelId - 1].timeUsed = seconds;
+		levelCardManager.cards[levelId - 1].isVisited = true;
+		levelCardManager.cards[levelId - 1].timeUsed = seconds;
 	}
 
 	public void ToggleSettingsPanelInGame()
