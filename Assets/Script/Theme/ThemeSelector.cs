@@ -15,15 +15,12 @@ public class ThemeSelector : MonoBehaviour
 		}
 	}
 
-	public void ExitAllThemeAnimation()
+	public void ExitTargetThemeAnimation(int themeId)
 	{
-		for (int i = 0; i < themes.Length; i++)
-		{
-			Animator anim = themes[i].GetComponent<Animator>();
-			anim.SetBool("play", false);
-			anim.Rebind();
-			anim.Update(0f);
-		}
+		Animator anim = themes[themeId - 1].GetComponent<Animator>();
+		anim.SetBool("play", false);
+		anim.Rebind();
+		anim.Update(0f);
 	}
 
 	public void Theme1Selected()
