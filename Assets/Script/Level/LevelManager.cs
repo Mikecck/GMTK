@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class LevelManager : Singleton<LevelManager>
 {
@@ -17,88 +17,41 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private int currentThemeIndex = 0;
     [SerializeField] private int currentLevelIndex = 0;
 
-    private bool isLevelLoading = false;
-
-    private void Start()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        LoadCurrentLevel();
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        isLevelLoading = false;
-    }
-
-    public void LoadCurrentLevel()
-    {
-        if (isLevelLoading) return;
-
-        isLevelLoading = true;
-
-        if (currentThemeIndex < themes.Count && currentLevelIndex < themes[currentThemeIndex].levels.Count)
-        {
-            string levelToLoad = themes[currentThemeIndex].levels[currentLevelIndex];
-            SceneManager.LoadScene(levelToLoad);
-        }
-        else
-        {
-            Debug.LogError("Invalid theme or level index. Cannot load level.");
-            isLevelLoading = false;
-        }
-    }
-
     public void LoadNextLevel()
     {
-        Debug.Log("LoadNextLevel!!");
-        if (isLevelLoading) return;
-
-        int tempThemeIndex = currentThemeIndex;
-        int tempLevelIndex = currentLevelIndex + 1;
-
-        if (tempLevelIndex >= themes[tempThemeIndex].levels.Count)
+        if (themes == null || themes.Count == 0)
         {
-            tempLevelIndex = 0;
-            tempThemeIndex++;
+            Debug.LogError("No themes or levels set in the LevelManager.");
+            return;
+        }
 
-            if (tempThemeIndex >= themes.Count)
+        if (currentLevelIndex >= themes[currentThemeIndex].levels.Count)
+        {
+            currentLevelIndex = 0;
+            currentThemeIndex++;
+
+            if (currentThemeIndex >= themes.Count)
             {
-                tempThemeIndex = 0;
+                Debug.Log("You've completed all themes and levels!");
+                currentThemeIndex = 0;
+                return;
             }
         }
 
-        // Load the next level
-        if (tempThemeIndex < themes.Count && tempLevelIndex < themes[tempThemeIndex].levels.Count)
-        {
-            isLevelLoading = true;
-            string levelToLoad = themes[tempThemeIndex].levels[tempLevelIndex];
-            SceneManager.LoadScene(levelToLoad);
-        }
-        else
-        {
-            Debug.LogError("Invalid theme or level index. Cannot load the next level.");
-        }
+        LoadLevel(currentThemeIndex, currentLevelIndex);
+        currentLevelIndex++;
     }
 
-    public void ReloadCurrentLevel()
+    private void LoadLevel(int themeIndex, int levelIndex)
     {
-        if (!isLevelLoading)
-        {
-            LoadCurrentLevel();
-        }
+        string levelName = $"T{themeIndex + 1}L{levelIndex + 1}";
+        Debug.Log($"Loading level: {levelName} from theme: {themes[themeIndex].themeName}");
+        SceneManager.LoadScene(levelName);
     }
-    public int GetCurrentThemeIndex()
+    public void ResetLevels()
     {
-        return currentThemeIndex;
-    }
-
-    public int GetCurrentLevelIndex()
-    {
-        return currentLevelIndex;
+        currentThemeIndex = 0;
+        currentLevelIndex = 0;
+        LoadNextLevel(); 
     }
 }

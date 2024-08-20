@@ -3047,7 +3047,7 @@ MonoBehaviour:
     - T2L4
     - T2L5
   currentThemeIndex: 0
-  currentLevelIndex: 1
+  currentLevelIndex: 2
 --- !u!224 &3068372918954303958
 RectTransform:
   m_ObjectHideFlags: 0
