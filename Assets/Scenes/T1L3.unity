@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSelection
       objectReference: {fileID: 0}
+    - target: {fileID: 3250153775719148884, guid: 35b4cadce81dd054cb74db3ce8b14414, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1315589910}
     - target: {fileID: 5835533981843545887, guid: 35b4cadce81dd054cb74db3ce8b14414, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -301,6 +305,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 764714974185272108, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 764714974185272108, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 764714974185272108, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440880897471460302, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1315589910}
     - target: {fileID: 5584469142346892973, guid: 1905ab68433963742b575f6b5f808193, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -618,6 +638,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: InGame2Settings
       objectReference: {fileID: 0}
+    - target: {fileID: 2333350210869753881, guid: 0de65162bb039cb4f87d9f08615b835b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1315589910}
     - target: {fileID: 2428333330734561952, guid: 0de65162bb039cb4f87d9f08615b835b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -823,6 +847,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7509560915871365345, guid: 553e1376ec807c54e992ed07bc68fe30, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1315589910}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -900,7 +928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3046751418382559218, guid: bd3b91221530b82489115d07c3827fe9, type: 3}
       propertyPath: currentLevelIndex
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1237,6 +1265,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5977698409572641894, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1315589910}
     - target: {fileID: 7717233784842192518, guid: 5e771c69e6d08fe41930e22ca7c38c56, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
