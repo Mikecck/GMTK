@@ -44,18 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14ad4c6b65bb494c8ab387619e3a939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  themes:
-  - themeName: Theme1
-    levels:
-    - T1L1
-    - T1L2
-    - T1L3
-    - T1L4
-    - T1L5
-  - themeName: Theme2
-    levels:
-    - T2L1
-    - T2L2
-    - T2L3
-    - T2L4
-    - T2L5
+  levelCards:
+  - {fileID: 11400000, guid: b5fa2fbfef6b8134ca4bee73ec65945b, type: 2}
+  - {fileID: 11400000, guid: cfb50a83bc5f7a147b7554bc5834c8a8, type: 2}
+  - {fileID: 11400000, guid: 9029cb11a9e29be43acb0e5b457f1663, type: 2}
+  - {fileID: 11400000, guid: 69ebcd3dc08991a49a64fc3b425c6cdc, type: 2}
+  - {fileID: 11400000, guid: 473ecb1af7d5d884d84875b52d4dd18c, type: 2}
+  levelSelector: {fileID: 0}
+  levelCardManager: {fileID: 0}
