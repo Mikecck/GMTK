@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: T2L5-Giraffe2
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -610036364, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
-  - {fileID: -1986372078, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
-  - {fileID: 2095789367, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
-  - {fileID: -155333479, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
-  - {fileID: -1144053886, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
-  - {fileID: 1294412002, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
+  - {fileID: -1842456057, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
+  - {fileID: -660396239, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
+  - {fileID: -331436687, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
+  - {fileID: 1912793624, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
+  - {fileID: 358652943, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
+  - {fileID: -1962559427, guid: 43ea4fd1f13cb264e8f6473befbbdaa8, type: 3}
   m_MinSpeed: 6
   m_MaxSpeed: 6
   m_AnimationStartTime: 0

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: T2L5-Background
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 1764412856, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
-  - {fileID: 518921346, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
-  - {fileID: 970436671, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
-  - {fileID: 1391559066, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
-  - {fileID: -2006960842, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
-  - {fileID: -520701713, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
+  - {fileID: 1833514759, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
+  - {fileID: -726454866, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
+  - {fileID: 1409037379, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
+  - {fileID: -777407964, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
+  - {fileID: -633869067, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
+  - {fileID: -1434411528, guid: fe380a555613a0b42b576952b4c8dbd1, type: 3}
   m_MinSpeed: 6
   m_MaxSpeed: 6
   m_AnimationStartTime: 0

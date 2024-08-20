@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: T2L5-Giraffe1
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: 234921532, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
-  - {fileID: 1728392203, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
-  - {fileID: 1486082974, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
-  - {fileID: 630192536, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
-  - {fileID: 114136004, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
-  - {fileID: -142566919, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
+  - {fileID: 283364454, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
+  - {fileID: -491461152, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
+  - {fileID: -2094255902, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
+  - {fileID: -1195721433, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
+  - {fileID: 3999921, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
+  - {fileID: 603750093, guid: 83cc5069679615e43a109b20c3fd85d4, type: 3}
   m_MinSpeed: 6
   m_MaxSpeed: 6
   m_AnimationStartTime: 0
