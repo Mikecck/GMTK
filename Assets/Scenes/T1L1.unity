@@ -276,17 +276,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &32204295 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 629797311149483507, guid: 3c02f0087e0ea7d469992f79027ce493, type: 3}
-  m_PrefabInstance: {fileID: 220586111}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &69781386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,17 +1404,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &686956499 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2211284841378486010, guid: 3c02f0087e0ea7d469992f79027ce493, type: 3}
-  m_PrefabInstance: {fileID: 220586111}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &725684288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5790522206104926994, guid: 3c02f0087e0ea7d469992f79027ce493, type: 3}
@@ -1468,12 +1446,12 @@ MonoBehaviour:
   isMainMenu: 0
   cam: {fileID: 0}
   mainMenu: {fileID: 0}
+  smallIcons: []
+  textIcons: []
   settingsPanel: {fileID: 725684288}
   themesPanel: {fileID: 0}
   bgmSlider: {fileID: 105929182}
-  bgmValueText: {fileID: 32204295}
   sfxSlider: {fileID: 1009035306}
-  sfxValueText: {fileID: 686956499}
   isHud: 1
   levelId: 1
   maxTime: 15
@@ -2628,6 +2606,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6958326624064411280}
     - target: {fileID: 3046751418382559218, guid: bd3b91221530b82489115d07c3827fe9, type: 3}
+      propertyPath: currentLevelIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046751418382559218, guid: bd3b91221530b82489115d07c3827fe9, type: 3}
       propertyPath: levelCards.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -3639,6 +3621,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 844526651}
+    - target: {fileID: 3188874217425642275, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188874217425642275, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188874217425642275, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3872138948137770275, guid: 1905ab68433963742b575f6b5f808193, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3723,6 +3717,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1315589910}
+    - target: {fileID: 6149131323378341911, guid: 1905ab68433963742b575f6b5f808193, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6242021340380261070, guid: 1905ab68433963742b575f6b5f808193, type: 3}
       propertyPath: m_Name
       value: Hud

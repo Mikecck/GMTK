@@ -14,41 +14,33 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField]
     private List<Theme> themes;
 
-    private int currentThemeIndex = 0;
-    private int currentLevelIndex = 0;
+    [SerializeField] private int currentThemeIndex = 0;
+    [SerializeField] private int currentLevelIndex = 0;
+
+    private bool isLevelLoading = false;
 
     private void Start()
     {
-        // Optional: Load the first level automatically when the game starts
+        SceneManager.sceneLoaded += OnSceneLoaded;
         LoadCurrentLevel();
     }
 
-    public void LoadNextLevel()
+    private void OnDestroy()
     {
-        currentLevelIndex++;
-
-        if (currentLevelIndex >= themes[currentThemeIndex].levels.Count)
-        {
-            currentLevelIndex = 0; // Reset level index
-
-            currentThemeIndex++;
-            if (currentThemeIndex >= themes.Count)
-            {
-                currentThemeIndex = 0; // Reset theme index if we have finished all themes
-                Debug.Log("All themes and levels completed. Restarting from the first theme and level.");
-            }
-        }
-
-        LoadCurrentLevel();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void ReloadCurrentLevel()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        LoadCurrentLevel();
+        isLevelLoading = false;
     }
 
-    private void LoadCurrentLevel()
+    public void LoadCurrentLevel()
     {
+        if (isLevelLoading) return;
+
+        isLevelLoading = true;
+
         if (currentThemeIndex < themes.Count && currentLevelIndex < themes[currentThemeIndex].levels.Count)
         {
             string levelToLoad = themes[currentThemeIndex].levels[currentLevelIndex];
@@ -57,11 +49,14 @@ public class LevelManager : Singleton<LevelManager>
         else
         {
             Debug.LogError("Invalid theme or level index. Cannot load level.");
+            isLevelLoading = false;
         }
     }
 
     public void LoadSpecificLevel(int themeIndex, int levelIndex)
     {
+        if (isLevelLoading) return;
+
         if (themeIndex < themes.Count && levelIndex < themes[themeIndex].levels.Count)
         {
             currentThemeIndex = themeIndex;
@@ -74,7 +69,15 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
-    // Optional: Helper methods to get current theme and level indices
+    public void ReloadCurrentLevel()
+    {
+        if (!isLevelLoading)
+        {
+            LoadCurrentLevel();
+        }
+    }
+
+
     public int GetCurrentThemeIndex()
     {
         return currentThemeIndex;
