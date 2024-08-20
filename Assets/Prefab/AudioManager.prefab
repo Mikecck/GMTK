@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2919795932004347402}
   - component: {fileID: 2211582140417108813}
   - component: {fileID: 4484384583338740343}
+  - component: {fileID: 5743166416995683827}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2284266235048434038}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51,43 +52,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffects:
   - groupID: Hover
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 1c7e394ada4df1848bdd70d57acf42ad, type: 3}
   - groupID: Click
-    clips: []
-  - groupID: SelectObject
-    clips: []
-  - groupID: SwitchToScale1
-    clips: []
-  - groupID: SwitchToScale2
-    clips: []
-  - groupID: SwitchToScale3
-    clips: []
-  - groupID: SwitchToScale4
-    clips: []
-  - groupID: SwitchToScale5
-    clips: []
-  - groupID: GrabObject
-    clips: []
-  - groupID: DropObject
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 4d764d651f381754a927ab17cde0d1a3, type: 3}
   - groupID: Win
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 87561b4cafd3e8a499b85f384dba6d01, type: 3}
   - groupID: Lose
-    clips: []
-  - groupID: 1-2_WaterInGlass
-    clips: []
-  - groupID: 1-5_EatWatermelon
-    clips: []
-  - groupID: 2-1_FlamingoToWater
-    clips: []
-  - groupID: 2-2_AlpacaScream
-    clips: []
-  - groupID: 2-3_TigerSleep
-    clips: []
-  - groupID: 2-4_GiraffeChewApple
-    clips: []
-  - groupID: 2-5_TossNTurnInQuilt
-    clips: []
+    clips:
+    - {fileID: 8300000, guid: 4921ae428f747d845b25ab8b09b02252, type: 3}
+  - groupID: SeaWaves
+    clips:
+    - {fileID: 8300000, guid: c2309faa8028430478ebbbcf9ded5e74, type: 3}
+  - groupID: Sheep
+    clips:
+    - {fileID: 8300000, guid: 71fa1ca41c33cf24c9c28424697d7c85, type: 3}
+  - groupID: ScaleDown
+    clips:
+    - {fileID: 8300000, guid: 409ea209c6cb4e045bf18f3ab7842a4b, type: 3}
+  - groupID: ScaleUp
+    clips:
+    - {fileID: 8300000, guid: 108cb841f36090244a03c1965e3d417b, type: 3}
+  - groupID: Shoot
+    clips:
+    - {fileID: 8300000, guid: 59fb76594dac8e74eb3b44c1570d2a67, type: 3}
 --- !u!114 &2919795932004347402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,13 +106,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tracks:
   - trackName: MainMenu
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 750f232d67db0f647a1230d5d08f0199, type: 3}
   - trackName: ThemeWatermelon
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 47e033feec340a746b7298fb2be1cdef, type: 3}
   - trackName: ThemeAnimal
-    clip: {fileID: 0}
-  - trackName: SummerWave
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 3e74219ebfd3fbe4f9581aedf3a532b9, type: 3}
 --- !u!114 &4484384583338740343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +125,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicLibrary: {fileID: 2211582140417108813}
   musicSource: {fileID: 6404794696543346514}
+--- !u!114 &5743166416995683827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2284266235048434038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abee74d45630b8c4381827094541cd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: MainMenu
 --- !u!1 &7009992546905020350
 GameObject:
   m_ObjectHideFlags: 0

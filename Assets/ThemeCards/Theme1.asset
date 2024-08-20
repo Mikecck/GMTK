@@ -15,5 +15,5 @@ MonoBehaviour:
   themeId: 1
   image: {fileID: -957382741, guid: 0c98e450919021f478124edba4e3c9a6, type: 3}
   isVisited: 1
-  isFinished: 1
-  timeUsed: 30
+  isFinished: 0
+  timeUsed: 0
