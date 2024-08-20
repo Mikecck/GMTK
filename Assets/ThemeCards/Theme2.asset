@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   themeId: 2
   image: {fileID: -1518057724, guid: 2afbaf101fe21ab49a6e8ad81e4c577c, type: 3}
-  isVisited: 0
+  isVisited: 1
   isFinished: 0
   timeUsed: 50
