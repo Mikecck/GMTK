@@ -940,6 +940,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2211582140417108813, guid: 285f8b39d909a954dbbd45ffeb0dd15d, type: 3}
+      propertyPath: tracks.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1eaf993c8b8ec664191f887c3a2de1f5, type: 3}
+    - target: {fileID: 2211582140417108813, guid: 285f8b39d909a954dbbd45ffeb0dd15d, type: 3}
+      propertyPath: tracks.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ab008e8095780724596e3c1ebde87b7c, type: 3}
+    - target: {fileID: 2211582140417108813, guid: 285f8b39d909a954dbbd45ffeb0dd15d, type: 3}
+      propertyPath: tracks.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e9e18772ba96bd43b4fe332cfefaf05, type: 3}
+    - target: {fileID: 2211582140417108813, guid: 285f8b39d909a954dbbd45ffeb0dd15d, type: 3}
+      propertyPath: tracks.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d7f8737b96fb404c85eb2f36883b9c1, type: 3}
     - target: {fileID: 2284266235048434038, guid: 285f8b39d909a954dbbd45ffeb0dd15d, type: 3}
       propertyPath: m_Name
       value: AudioManager
