@@ -1490,6 +1490,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &704401493 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5473127564917580063, guid: ce5455a993e925a4bbcbf99aeb7ed46c, type: 3}
+  m_PrefabInstance: {fileID: 2292667470236236149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &704401494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1103076888253985219, guid: ce5455a993e925a4bbcbf99aeb7ed46c, type: 3}
+  m_PrefabInstance: {fileID: 2292667470236236149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &725684288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5790522206104926994, guid: 3c02f0087e0ea7d469992f79027ce493, type: 3}
@@ -1566,6 +1582,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4940975303504607225, guid: a8ce58995f6e3b64ead8560011a2ff94, type: 3}
   m_PrefabInstance: {fileID: 3223538043994127889}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &930066380 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 155012762386383014, guid: 528a0c64ced48f940ad0a1bb51951ca6, type: 3}
+  m_PrefabInstance: {fileID: 7444804413624418292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &930066381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5933517698615956846, guid: 528a0c64ced48f940ad0a1bb51951ca6, type: 3}
+  m_PrefabInstance: {fileID: 7444804413624418292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &944593640
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,6 +2093,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3749001622851346438, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
+      propertyPath: levelButton
+      value: 
+      objectReference: {fileID: 704401494}
+    - target: {fileID: 3749001622851346438, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
+      propertyPath: blockingObject
+      value: 
+      objectReference: {fileID: 930066381}
     - target: {fileID: 3749001622851346438, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
       propertyPath: scalableTilemaps.Array.size
       value: 1
