@@ -118,7 +118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons_1
+      name: settings
       rect:
         serializedVersion: 2
         x: 24
@@ -254,13 +254,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      buttons_1: -858115451
       buttons_2: -1326427738
       buttons_3: 1706469844
       buttons_5: 176809116
       main: 278533430
       menu: 1488448278
       resume: -1678216895
+      settings: -858115451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

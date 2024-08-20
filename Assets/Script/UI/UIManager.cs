@@ -30,7 +30,6 @@ public class UIManager: MonoBehaviour
 	[SerializeField] private LevelSelector levelSelector;
 	[SerializeField] private LevelCardManager levelCardManager;
 
-
 	private void Start()
 	{
 		if (isMainMenu)
@@ -177,6 +176,10 @@ public class UIManager: MonoBehaviour
 		sfxValueText.text = sfxSlider.value.ToString();
 	}
 
+	public void LoadNextLevel()
+	{
+		LevelManager.Instance.LoadNextLevel();
+	}
 	public void QuitGame()
 	{
 #if UNITY_EDITOR
