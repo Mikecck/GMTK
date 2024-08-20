@@ -1,18 +1,25 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
     private ScalableObjectController currentSelectedObject;
     [SerializeField]
-    private List<ScalableObjectController> scalableTilemaps; // List to hold tilemap controllers
+    private List<ScalableObjectController> scalableTilemaps;
 
     [SerializeField]
-    private float timeLimit = 15f;  // Time limit in seconds for the current level
+    private float timeLimit = 15f;
 
     private float timeRemaining;
     private bool levelComplete = false;
+
+    [SerializeField]
+    private Button blockingObject;
+
+    [SerializeField]
+    private Button levelButton;
 
     void OnEnable()
     {
@@ -37,6 +44,16 @@ public class GameManager : Singleton<GameManager>
         {
             UpdateTimer();
         }
+
+        if (blockingObject == null)
+        {
+            blockingObject = GameObject.Find("Button_Block").GetComponent<Button>();
+        }
+
+        if (levelButton == null)
+        {
+            levelButton = GameObject.Find("Button_Checkout").GetComponent<Button>();
+        }
     }
 
     void StartLevelTimer()
@@ -52,8 +69,8 @@ public class GameManager : Singleton<GameManager>
             timeRemaining -= Time.deltaTime;
             if (timeRemaining <= 0)
             {
-                Debug.Log("Time's up! Proceeding to the next level.");
-                FailLevel();
+                Debug.Log("Time's up!");
+                //FailLevel();
             }
         }
     }
@@ -103,13 +120,19 @@ public class GameManager : Singleton<GameManager>
         if (allCorrect)
         {
             levelComplete = true;
-            Debug.Log("All correct tilemaps are active within time, awarding badge and proceeding to the next level.");
+            Debug.Log("All correct tilemaps are active within time, awarding badge.");
+            DisableBlockingObject();
             AwardBadge();
-            LevelManager.Instance.LoadNextLevel();  // Load the next level
         }
-        else
+
+    }
+
+    private void DisableBlockingObject()
+    {
+        if (blockingObject != null)
         {
-            Debug.Log("Not all correct tilemaps are active yet.");
+            blockingObject.gameObject.SetActive(false); // Disable the blocking object to make the button clickable
+            levelButton.interactable = true; // Ensure the button is interactable
         }
     }
 
@@ -123,7 +146,7 @@ public class GameManager : Singleton<GameManager>
     private void FailLevel()
     {
         levelComplete = true;
-        Debug.Log("Level failed, proceeding to the next level without awarding badge.");
-        LevelManager.Instance.LoadNextLevel();  // Load the next level
+        levelButton.interactable = true;
+        DisableBlockingObject();
     }
 }

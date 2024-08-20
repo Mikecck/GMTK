@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9993b53c591cd4449b74619402fdd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scalableObjects: []
+  scalableTilemaps: []
   timeLimit: 20
+  blockingObject: {fileID: 6085350286298121489, guid: 528a0c64ced48f940ad0a1bb51951ca6, type: 3}
+  levelButton: {fileID: 271931645397688942, guid: ce5455a993e925a4bbcbf99aeb7ed46c, type: 3}
