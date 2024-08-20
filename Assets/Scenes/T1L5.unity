@@ -1458,16 +1458,16 @@ PrefabInstance:
       objectReference: {fileID: 1717007519}
     - target: {fileID: 3749001622851346438, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
       propertyPath: scalableTilemaps.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3749001622851346438, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
       propertyPath: scalableTilemaps.Array.data[0]
       value: 
-      objectReference: {fileID: 572483072}
+      objectReference: {fileID: 796512105}
     - target: {fileID: 3749001622851346438, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
       propertyPath: scalableTilemaps.Array.data[1]
       value: 
-      objectReference: {fileID: 796512105}
+      objectReference: {fileID: 572483072}
     - target: {fileID: 5837516516999349654, guid: 9f331abc6ac9cd14a8a4d87097216e9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.10649285
