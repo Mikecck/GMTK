@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e4496a50ec93f84eb603120a1c67322
+guid: f86f43e9257ded64f9f03820f18cae28
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,12 +97,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: play
+      name: play-hover
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
+        width: 59
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -111,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fa19d46458db1c4cb7c615ac459b7c1
-      internalID: -1678216895
+      spriteID: 09d5a98af24602446bc896ff9dc96a86
+      internalID: -996553768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: audio
+      name: audio-hover
       rect:
         serializedVersion: 2
-        x: 24
+        x: 59
         y: 0
-        width: 24
+        width: 59
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -132,19 +132,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df821acede03aea42897c0e7be5c2179
-      internalID: -858115451
+      spriteID: 661c82b81813bf243b7abc4361151e6c
+      internalID: 169886086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: exit
+      name: exit-hover
       rect:
         serializedVersion: 2
-        x: 48
+        x: 118
         y: 0
-        width: 24
+        width: 59
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -153,92 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0696d2e111b18cf4cabd40cabfffb86b
-      internalID: -1326427738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttons_3
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c62abeadba900554e9e73a7d523c9863
-      internalID: 1706469844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menu
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b46e3d7143c643b488c22789d56e4fc6
-      internalID: 1488448278
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttons_5
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b330bb0b514831d4e8921e1706869e73
-      internalID: 176809116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: main
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bfd0748e7aef7a46bea76ec13c3ba0c
-      internalID: 278533430
+      spriteID: 65b8b27a404d0c048a4cd6732dc3c9c0
+      internalID: -1267064800
       vertices: []
       indices: 
       edges: []
@@ -254,13 +170,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      audio: -858115451
-      buttons_3: 1706469844
-      buttons_5: 176809116
-      exit: -1326427738
-      main: 278533430
-      menu: 1488448278
-      play: -1678216895
+      audio-hover: 169886086
+      exit-hover: -1267064800
+      play-hover: -996553768
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
