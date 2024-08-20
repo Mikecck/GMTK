@@ -29,7 +29,9 @@ public class UIManager: MonoBehaviour
 	[SerializeField] private GameObject levelSelection;
 	[SerializeField] private LevelSelector levelSelector;
 	[SerializeField] private LevelCardManager levelCardManager;
-	[SerializeField] GameObject shootEffect;
+	[SerializeField] private GameObject shootEffect;
+	[SerializeField] private GameObject win;
+	[SerializeField] private GameObject lose;
 
 	private void Start()
 	{
@@ -186,6 +188,18 @@ public class UIManager: MonoBehaviour
 	{
 		shootEffect.SetActive(true);
 		shootEffect.GetComponent<Animator>().SetTrigger("shoot");
+	}
+
+	public void PlayWinAnimation()
+	{
+		win.SetActive(true);
+		win.GetComponent<Animator>().SetTrigger("win");
+	}
+
+	public void PlayLoseAnimation()
+	{
+		lose.SetActive(true);
+		lose.GetComponent<Animator>().SetTrigger("lose");
 	}
 
 	public void QuitGame()
