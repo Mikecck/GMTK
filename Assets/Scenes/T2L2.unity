@@ -371,6 +371,55 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5711996207947991608, guid: 0de65162bb039cb4f87d9f08615b835b, type: 3}
   m_PrefabInstance: {fileID: 322041636}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &362872219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 362872221}
+  - component: {fileID: 362872220}
+  m_Layer: 0
+  m_Name: SetFree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &362872220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362872219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0726d3d39800a644a964ffe730d0d439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFence: {fileID: 2068949748}
+  sheepControls:
+  - {fileID: 1909293673}
+  - {fileID: 2134984536}
+  - {fileID: 1728518356}
+--- !u!4 &362872221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362872219}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744515724
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &744515725
 Transform:
   m_ObjectHideFlags: 0
@@ -700,7 +749,7 @@ Transform:
   m_GameObject: {fileID: 807097742}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.062289372, y: -0.2688513, z: 0.0055176974}
+  m_LocalPosition: {x: -0.58, y: 0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2101,7 +2150,7 @@ Transform:
   m_GameObject: {fileID: 1728518349}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.98, y: -0.69, z: 0}
+  m_LocalPosition: {x: 6.56, y: -4.31, z: 0}
   m_LocalScale: {x: 1.3, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2272,7 +2321,7 @@ MonoBehaviour:
   walkDirection1: {x: -0.4, y: 1}
   walkDirection2: {x: 0, y: 1}
   stageOneTime: 20
-  isIdle: 1
+  isIdle: 0
   idleSpeed: 0.4
   idleThreshold: 100
 --- !u!1 &1909293666
@@ -2304,7 +2353,7 @@ Transform:
   m_GameObject: {fileID: 1909293666}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.33, y: 0.65, z: 0}
+  m_LocalPosition: {x: -6.04, y: -4.04, z: 0}
   m_LocalScale: {x: 1.4, y: 1.3, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2472,10 +2521,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 10
   twoWalkStage: 1
-  walkDirection1: {x: 0, y: 1}
+  walkDirection1: {x: 0.2, y: 1}
   walkDirection2: {x: -0.5, y: 1}
   stageOneTime: 30
-  isIdle: 1
+  isIdle: 0
   idleSpeed: 0.3
   idleThreshold: 100
 --- !u!1 &1928417359
@@ -2495,7 +2544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1928417360
 Transform:
   m_ObjectHideFlags: 0
@@ -2505,7 +2554,7 @@ Transform:
   m_GameObject: {fileID: 1928417359}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.58228934, y: -0.23114869, z: -0.0055176974}
+  m_LocalPosition: {x: 0.58228934, y: 0.26, z: -0.0055176974}
   m_LocalScale: {x: 1.03, y: 1.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2860,7 +2909,7 @@ Transform:
   m_GameObject: {fileID: 2134984530}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.73, y: 1.8300002, z: 0}
+  m_LocalPosition: {x: 0.85, y: -7.9, z: 0}
   m_LocalScale: {x: 1.4, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3026,12 +3075,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eec5f28e330a254fa3fc3905ce42b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 6
+  walkSpeed: 8
   twoWalkStage: 1
   walkDirection1: {x: -1, y: 0}
   walkDirection2: {x: -0.2, y: 1}
   stageOneTime: 30
-  isIdle: 1
+  isIdle: 0
   idleSpeed: 0.6
   idleThreshold: 100
 --- !u!1660057539 &9223372036854775807
@@ -3044,6 +3093,7 @@ SceneRoots:
   - {fileID: 1909293667}
   - {fileID: 2134984531}
   - {fileID: 1728518350}
+  - {fileID: 362872221}
   - {fileID: 1495526201}
   - {fileID: 1134391267}
   - {fileID: 1597348101}

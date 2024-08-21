@@ -10,9 +10,11 @@ public class MusicManager : MonoBehaviour
 	[SerializeField]
 	private AudioSource musicSource;
 
+	public MusicPlayer.MusicName curMusic;
+
 	private void Awake()
 	{
-		if (Instance != null)
+		if (Instance != null && Instance != this)
 		{
 			Destroy(gameObject);
 		}
@@ -26,6 +28,11 @@ public class MusicManager : MonoBehaviour
 	public void PlayMusic(string trackName, float fadeDuration = 0.5f)
 	{
 		StartCoroutine(AnimateMusicCrossfade(musicLibrary.GetClipFromName(trackName), fadeDuration));
+	}
+
+	public void ChangeMusicVolume(float volume)
+	{
+		musicSource.volume = volume;
 	}
 
 	IEnumerator AnimateMusicCrossfade(AudioClip nextTrack, float fadeDuration = 0.5f)

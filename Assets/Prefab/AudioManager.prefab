@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2919795932004347402}
   - component: {fileID: 2211582140417108813}
   - component: {fileID: 4484384583338740343}
-  - component: {fileID: 5743166416995683827}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -56,7 +55,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 1c7e394ada4df1848bdd70d57acf42ad, type: 3}
   - groupID: Click
     clips:
-    - {fileID: 8300000, guid: 4d764d651f381754a927ab17cde0d1a3, type: 3}
+    - {fileID: 8300000, guid: e5ad3618133a04241b479764ad5d9538, type: 3}
   - groupID: Win
     clips:
     - {fileID: 8300000, guid: 87561b4cafd3e8a499b85f384dba6d01, type: 3}
@@ -78,6 +77,9 @@ MonoBehaviour:
   - groupID: Shoot
     clips:
     - {fileID: 8300000, guid: 59fb76594dac8e74eb3b44c1570d2a67, type: 3}
+  - groupID: Slide
+    clips:
+    - {fileID: 8300000, guid: 494257ec01d074945908063db151ef02, type: 3}
 --- !u!114 &2919795932004347402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,19 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicLibrary: {fileID: 2211582140417108813}
   musicSource: {fileID: 6404794696543346514}
---- !u!114 &5743166416995683827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2284266235048434038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abee74d45630b8c4381827094541cd45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicName: MainMenu
+  curMusic: 0
 --- !u!1 &7009992546905020350
 GameObject:
   m_ObjectHideFlags: 0

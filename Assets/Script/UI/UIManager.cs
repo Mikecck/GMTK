@@ -169,11 +169,11 @@ public class UIManager: MonoBehaviour
 	*/
 	public void ChangeBGMVolume()
 	{
-		float volume = bgmSlider.value;
+		MusicManager.Instance.ChangeMusicVolume(bgmSlider.value / bgmSlider.maxValue);
 	}
 	public void ChangeSFXVolume()
 	{
-		float volume = sfxSlider.value;
+		SoundManager.Instance.ChangeSoundVolume(sfxSlider.value / bgmSlider.maxValue);
 	}
 
 	public void ResetMainMenuIcons()

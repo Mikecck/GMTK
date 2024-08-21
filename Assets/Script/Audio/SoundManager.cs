@@ -37,4 +37,9 @@ public class SoundManager : MonoBehaviour
 	{
 		sfx2DSource.PlayOneShot(sfxLibrary.GetClipFromName(soundName));
 	}
+
+	public void ChangeSoundVolume(float volume)
+	{
+		sfx2DSource.volume = volume;
+	}
 }

@@ -33,4 +33,10 @@ public class ThemeSelector : MonoBehaviour
 			SceneManager.LoadScene("T2L1");
 	}
 
+	public void HoverTheme2()
+	{
+		if (themeCardManager.cards[1].isVisited)
+			SoundManager.Instance.PlaySound2D("Shoot");
+	}
+
 }

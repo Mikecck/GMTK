@@ -8,7 +8,7 @@ public class ThemeCardManager : MonoBehaviour
 {
 	public ThemeCard[] cards;
 	[SerializeField] private Sprite unknownImage;
-	[SerializeField] private SpriteRenderer[] images;
+	[SerializeField] private Image[] images;
 	[SerializeField] private TextMeshProUGUI[] timeTexts;
 
 	private void OnEnable()
@@ -36,6 +36,7 @@ public class ThemeCardManager : MonoBehaviour
 			{
 				// image
 				images[i].sprite = unknownImage;
+				timeTexts[i].enabled = false;
 			}
 		}
 	}
