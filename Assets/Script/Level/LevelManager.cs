@@ -14,8 +14,8 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField]
     private List<Theme> themes;
 
-    [SerializeField] private int currentThemeIndex = 0;
-    [SerializeField] private int currentLevelIndex = 0;
+    private int currentThemeIndex = 0;
+    private int currentLevelIndex = 0;
 
     public void LoadNextLevel()
     {

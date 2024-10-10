@@ -378,7 +378,7 @@ Tilemap:
       - {fileID: 1840117427, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
       - {fileID: -906166953, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
       - {fileID: 2001341765, guid: 05611bd29c057894390c916ff646b6e1, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -1510,23 +1510,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &889241372969032997
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1109349599218357289}
-  - component: {fileID: 3046751418956769682}
-  m_Layer: 0
-  m_Name: LevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &895850509164718552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1727,21 +1710,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1109349599218357289
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889241372969032997}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.10649285, y: 0.6499645, z: 0.08600213}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &1217731942003569818
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2995,35 +2963,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2829115052378023129}
   m_CullTransparentMesh: 1
---- !u!114 &3046751418956769682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889241372969032997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a14ad4c6b65bb494c8ab387619e3a939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  themes:
-  - themeName: Theme1
-    levels:
-    - T1L1
-    - T1L2
-    - T1L3
-    - T1L4
-    - T1L5
-  - themeName: Theme1
-    levels:
-    - T2L1
-    - T2L2
-    - T2L3
-    - T2L4
-    - T2L5
-  currentThemeIndex: 0
-  currentLevelIndex: 2
 --- !u!224 &3068372918954303958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7447,7 +7386,6 @@ SceneRoots:
   - {fileID: 2119590258}
   - {fileID: 1963261201}
   - {fileID: 5837516516492310172}
-  - {fileID: 1109349599218357289}
   - {fileID: 8772530018943966042}
   - {fileID: 3993619966559278138}
   - {fileID: 2511704836576147076}
