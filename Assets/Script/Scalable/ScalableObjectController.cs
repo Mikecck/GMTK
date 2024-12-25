@@ -67,29 +67,26 @@ public class ScalableObjectController : MonoBehaviour
     {
         if (controllableChildren.Count == 0) return;
 
-        // Disable the current child's TilemapRenderer and its background
+        // Disable the current child's TilemapRenderer
         SetTilemapRendererEnabled(controllableChildren[currentChildIndex], false);
 
         // Adjust the index using modulo for wrapping
         currentChildIndex = (currentChildIndex + direction + controllableChildren.Count) % controllableChildren.Count;
 
-        // Enable the new child's TilemapRenderer and its background
+        // Enable the new child's TilemapRenderer
         SetTilemapRendererEnabled(controllableChildren[currentChildIndex], true);
 
-        // Check if the newly enabled child's TilemapRenderer is the correct one
-        if (controllableChildren[currentChildIndex] == correctTilemap)
+        // Update isCorrectTilemapActive
+        bool wasCorrect = isCorrectTilemapActive;
+        isCorrectTilemapActive = (controllableChildren[currentChildIndex] == correctTilemap);
+
+        // Only notify the GameManager if something changed, but you can also always notify
+        if (isCorrectTilemapActive != wasCorrect)
         {
-            if (!isCorrectTilemapActive)
-            {
-                isCorrectTilemapActive = true;
-                GameManager.Instance.NotifyTilemapCorrect(this); // Notify that the correct tilemap is selected
-            }
-        }
-        else
-        {
-            isCorrectTilemapActive = false;
+            GameManager.Instance.ReCheckTilemaps();
         }
     }
+
 
     // Helper method to enable/disable the TilemapRenderer of a GameObject and its children
     private void SetTilemapRendererEnabled(GameObject obj, bool enabled)

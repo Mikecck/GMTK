@@ -101,12 +101,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void NotifyTilemapCorrect(ScalableObjectController obj)
-    {
-        Debug.Log("Correct tilemap enabled: " + obj.name);
-        CheckForLevelCompletion();
-    }
-
     private void CheckForLevelCompletion()
     {
         bool allCorrect = true;
@@ -150,5 +144,52 @@ public class GameManager : Singleton<GameManager>
         get { return levelComplete; }
         set { levelComplete = value; }
     }
+
+    public void ReCheckTilemaps()
+    {
+        bool allCorrect = true;
+
+        // Re-check every tilemap in the level
+        foreach (var tilemapController in scalableTilemaps)
+        {
+            if (!tilemapController.IsCorrectTilemapActive())
+            {
+                allCorrect = false;
+                break;
+            }
+        }
+
+        if (allCorrect)
+        {
+            if (!levelComplete)
+            {
+                levelComplete = true;
+                Debug.Log("All correct tilemaps are active, awarding badge.");
+                DisableBlockingObject();
+            }
+        }
+        else
+        {
+            if (levelComplete)
+            {
+                levelComplete = false;
+                Debug.Log("At least one tilemap has been changed away from correct. Removing badge.");
+                EnableBlockingObject();
+            }
+        }
+    }
+
+    private void EnableBlockingObject()
+    {
+        if (blockingObject != null)
+        {
+            blockingObject.gameObject.SetActive(true); 
+        }
+        if (levelButton != null)
+        {
+            levelButton.interactable = false;
+        }
+    }
+
 
 }
