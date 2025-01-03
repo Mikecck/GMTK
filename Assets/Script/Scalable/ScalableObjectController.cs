@@ -52,7 +52,7 @@ public class ScalableObjectController : MonoBehaviour
 
         if (isSelected)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetMouseButtonDown(0))
             {
                 CycleChildren(-1); // Cycle left
             }
@@ -132,6 +132,5 @@ public class ScalableObjectController : MonoBehaviour
     public void SetSelected(bool selected)
     {
         isSelected = selected;
-        // Additional visual feedback for selection can be added here, such as highlighting
     }
 }

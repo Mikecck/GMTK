@@ -56,7 +56,7 @@ public class Hoverover : MonoBehaviour
         if (targetController != null && !targetController.isSelected)
         {
             targetController.SetSelected(true);
-            GameManager.Instance.SelectObject(targetController);
+            // GameManager.Instance.SelectObject(targetController);
         }
     }
 
@@ -66,7 +66,7 @@ public class Hoverover : MonoBehaviour
         if (targetController != null && targetController.isSelected)
         {
             targetController.SetSelected(false);
-            GameManager.Instance.DeselectCurrentObject();
+            // GameManager.Instance.DeselectCurrentObject();
         }
     }
 }
