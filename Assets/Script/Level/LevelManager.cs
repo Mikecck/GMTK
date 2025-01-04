@@ -51,7 +51,7 @@ public class LevelManager : Singleton<LevelManager>
         LoadLevel(currentThemeIndex, currentLevelIndex);
     }
 
-    private void LoadLevel(int themeIndex, int levelIndex)
+    public void LoadLevel(int themeIndex, int levelIndex)
     {
         string levelName = $"T{themeIndex + 1}L{levelIndex + 1}";
         SceneManager.LoadScene(levelName);

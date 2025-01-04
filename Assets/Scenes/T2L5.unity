@@ -2774,6 +2774,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7506143847872135701, guid: 6141c4e3954ca924b90db3af20d3c865, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1315589908}
+    - target: {fileID: 7506143847872135701, guid: 6141c4e3954ca924b90db3af20d3c865, type: 3}
       propertyPath: win
       value: 
       objectReference: {fileID: 1541797787}
@@ -2785,6 +2789,10 @@ PrefabInstance:
       propertyPath: levelId
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7506143847872135701, guid: 6141c4e3954ca924b90db3af20d3c865, type: 3}
+      propertyPath: mainMenu
+      value: 
+      objectReference: {fileID: 2130683910}
     - target: {fileID: 7506143847872135701, guid: 6141c4e3954ca924b90db3af20d3c865, type: 3}
       propertyPath: bgmSlider
       value: 
@@ -2800,7 +2808,7 @@ PrefabInstance:
     - target: {fileID: 7506143847872135701, guid: 6141c4e3954ca924b90db3af20d3c865, type: 3}
       propertyPath: themesPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6886091376642461799, guid: af14865d596addd47b574b1d7555529c, type: 3}
     - target: {fileID: 7506143847872135701, guid: 6141c4e3954ca924b90db3af20d3c865, type: 3}
       propertyPath: levelSelector
       value: 
@@ -3925,6 +3933,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: InGame2MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5711996207947991608, guid: 0de65162bb039cb4f87d9f08615b835b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6087732464549355896, guid: 0de65162bb039cb4f87d9f08615b835b, type: 3}
       propertyPath: m_Name
       value: InGameMenu
@@ -3942,6 +3954,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0de65162bb039cb4f87d9f08615b835b, type: 3}
+--- !u!1 &2130683910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6777120393573332652, guid: 0de65162bb039cb4f87d9f08615b835b, type: 3}
+  m_PrefabInstance: {fileID: 2130683909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
